@@ -148,4 +148,10 @@ friends:
 #  友情链接5: http://localhost:4000/
 #  友情链接6: http://localhost:4000/
 
-aboutme: 一个希望转行却找不到方向，走不出第一步的人
+aboutme:
+  <br>会点python</br>
+  <br>会点linux</br>
+  <br>会点基础算法</br>
+  <br>会点日语</br>
+  <br>什么都会点，但又什么都不会</br>
+  <br>一个不管做什么，最后都是错的人</br>
