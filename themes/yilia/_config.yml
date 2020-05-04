@@ -130,12 +130,6 @@ smart_menu:
   friends: '友链'
   aboutme: '关于我'
 
-# Declare license on posts
-post_copyright:
-  enable: true    #激活版权声明模块
-  license: CC BY-NC-SA 3.0     #版权许可协议
-  license_url: https://huangketsudou.github.io/      #声明的文章的可点击链接（域名）
-
 
 # 版权声明
 #在需要进行版权声明的文章的md文件头部，设置属性declare: true。
