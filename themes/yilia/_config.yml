@@ -99,6 +99,15 @@ gitment_oauth:
   client_id: ''           #client ID
   client_secret: ''       #client secret
 
+# Valine https://valine.js.org
+valine:
+  appid: 'zgSxSngR7rnn3iUI0bxxRTM1-gzGzoHsz'
+  appkey: '7Cqjugfx7RNRhHavSlizCirS'
+  verify: false #验证码
+  notify: false #评论回复提醒
+  avatar: retro #评论列表头像样式：''/mm/identicon/monsterid/wavatar/retro/hide
+  placeholder: 'ヾﾉ≧∀≦)o欢迎评论!' #评论框占位符
+
 # 样式定制 - 一般不需要修改，除非有很强的定制欲望…
 style:
   # 头像上面的背景颜色
@@ -109,7 +118,7 @@ style:
 # slider的设置
 slider:
   # 是否默认展开tags板块
-  showTags: false
+  showTags: true
 
 # 智能菜单
 # 如不需要，将该对应项置为false
@@ -120,6 +129,13 @@ smart_menu:
   innerArchive: '所有文章'
   friends: '友链'
   aboutme: '关于我'
+
+# Declare license on posts
+post_copyright:
+  enable: true    #激活版权声明模块
+  license: CC BY-NC-SA 3.0     #版权许可协议
+  license_url: https://huangketsudou.github.io/      #声明的文章的可点击链接（域名）
+
 
 friends:
 #  友情链接1: http://localhost:4000/
