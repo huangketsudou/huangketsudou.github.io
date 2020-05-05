@@ -5,6 +5,17 @@
         <%- partial('post/title', {class_name: 'article-title'}) %>
         <% if (!post.noDate){ %>
         <%- partial('post/date', {class_name: 'archive-article-date', date_format: null}) %>
+        <!-- 需要添加的位置 -->
+          <% if ( !index ){ %>
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        <% } %>
+        <!-- 开始添加字数统计-->
+        <% if(theme.word_count && !post.no_word_count){%>
+          <%- partial('post/word') %>
+          <% } %>
+        <!-- 添加完成 -->
         <% } %>
       </header>
     <% } %>
