@@ -10,7 +10,7 @@ declare: true
 comment: true
 ---
 
-![图片](http://api.mtyqx.cn/api/random.php?x)
+![图片](http://api.mtyqx.cn/api/random.php?4)
 <!-- more -->
 
 在日语中表示与冷相关的表达词汇共有以上的四种，其中冷やす、冷ます是日语中的他动词，而冷える和冷める则是日语中的自动词。
