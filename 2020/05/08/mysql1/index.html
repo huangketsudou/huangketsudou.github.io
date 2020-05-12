@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://huangketsudou.github.io/2020/05/08/mysql1/index.html#http://api.mtyqx.cn/api/random.php?21">
 <meta property="article:published_time" content="2020-05-08T14:25:58.000Z">
-<meta property="article:modified_time" content="2020-05-11T16:20:17.919Z">
+<meta property="article:modified_time" content="2020-05-12T14:21:23.712Z">
 <meta property="article:author" content="ketsudou">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="编程">
@@ -201,7 +201,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.6k字</span>
+        <span class="post-count">2.8k字</span>
       </span>
     </span>
 
@@ -323,7 +323,10 @@
 <p>group by：分组行，输出不一定是分组顺序，只可能选择列或者表达式列，且必须使用每个列表达式<br>如果与聚集函数一起使用列，那么必须使用</p>
 <h3 id="使用子查询"><a href="#使用子查询" class="headerlink" title="使用子查询"></a>使用子查询</h3><h4 id="使用子查询进行过滤"><a href="#使用子查询进行过滤" class="headerlink" title="使用子查询进行过滤"></a>使用子查询进行过滤</h4><p>可以将某一查询的返回结果给另一查询作为where子句,注意子查询总是从内向外执行<br>应用场景，所需的数据信息分属不同的表格</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT order_num FROM orderitems WHERE prod_id&#x3D;&#39;TNT&#39;;</span><br><span class="line">SELECT cust_id FROM orders WHERE order_num IN (2005,20007);</span><br><span class="line">SELECT cust_id FROM orders WHERE order_num IN (SELECT order_num </span><br><span class="line">                                  FROM orderitems WHERE prod_id&#x3D;&#39;TNT2&#39;);</span><br></pre></td></tr></table></figure>
-<h4 id="作为计算字段使用子查询"><a href="#作为计算字段使用子查询" class="headerlink" title="作为计算字段使用子查询"></a>作为计算字段使用子查询</h4>
+<h4 id="作为计算字段使用子查询"><a href="#作为计算字段使用子查询" class="headerlink" title="作为计算字段使用子查询"></a>作为计算字段使用子查询</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT cust_name,cust_state,(SELECT COUNT(*) </span><br><span class="line">                          FROM orders WHERE orders.cust_id &#x3D; customers.cust_id) AS orders</span><br><span class="line">                       FROM customers ORDER BY cust_name;</span><br></pre></td></tr></table></figure>
+<p>上面的查询称为相关子查询，需要使用完全限定的列名，以防止出现错误，如果不用mysql会认为是在一个表格中的同一<br>字段进行比较，导致错误。</p>
+<h3 id="联结表"><a href="#联结表" class="headerlink" title="联结表"></a>联结表</h3><p>外键为某个表中的一列，它包含另一个表的主键值，定义两个表的关系，关系数据库的<br>可伸缩性比非关系数据库要好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
 
 <!-- 《添加版权声明 -->
@@ -521,7 +524,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用mysql"><span class="toc-number">1.</span> <span class="toc-text">使用mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#选择数据库"><span class="toc-number">1.1.</span> <span class="toc-text">选择数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#了解数据库以及表"><span class="toc-number">1.2.</span> <span class="toc-text">了解数据库以及表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检索数据"><span class="toc-number">2.</span> <span class="toc-text">检索数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初步检索数据"><span class="toc-number">2.1.</span> <span class="toc-text">初步检索数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对检索数据进行限制"><span class="toc-number">2.2.</span> <span class="toc-text">对检索数据进行限制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序数据"><span class="toc-number">3.</span> <span class="toc-text">排序数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤选择"><span class="toc-number">4.</span> <span class="toc-text">过滤选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子句组合"><span class="toc-number">5.</span> <span class="toc-text">子句组合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通配符过滤"><span class="toc-number">6.</span> <span class="toc-text">通配符过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达时搜索"><span class="toc-number">7.</span> <span class="toc-text">正则表达时搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建计算字段"><span class="toc-number">8.</span> <span class="toc-text">创建计算字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用函数"><span class="toc-number">9.</span> <span class="toc-text">使用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#汇总数据"><span class="toc-number">10.</span> <span class="toc-text">汇总数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#聚集函数"><span class="toc-number">10.1.</span> <span class="toc-text">聚集函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#聚集不同的值"><span class="toc-number">10.2.</span> <span class="toc-text">聚集不同的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合聚集函数"><span class="toc-number">10.3.</span> <span class="toc-text">组合聚集函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组数据"><span class="toc-number">11.</span> <span class="toc-text">分组数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据分组"><span class="toc-number">11.1.</span> <span class="toc-text">数据分组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建分组"><span class="toc-number">11.2.</span> <span class="toc-text">创建分组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤以及排序分组"><span class="toc-number">11.3.</span> <span class="toc-text">过滤以及排序分组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用子查询"><span class="toc-number">12.</span> <span class="toc-text">使用子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用子查询进行过滤"><span class="toc-number">12.1.</span> <span class="toc-text">使用子查询进行过滤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#作为计算字段使用子查询"><span class="toc-number">12.2.</span> <span class="toc-text">作为计算字段使用子查询</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用mysql"><span class="toc-number">1.</span> <span class="toc-text">使用mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#选择数据库"><span class="toc-number">1.1.</span> <span class="toc-text">选择数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#了解数据库以及表"><span class="toc-number">1.2.</span> <span class="toc-text">了解数据库以及表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检索数据"><span class="toc-number">2.</span> <span class="toc-text">检索数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#初步检索数据"><span class="toc-number">2.1.</span> <span class="toc-text">初步检索数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#对检索数据进行限制"><span class="toc-number">2.2.</span> <span class="toc-text">对检索数据进行限制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序数据"><span class="toc-number">3.</span> <span class="toc-text">排序数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤选择"><span class="toc-number">4.</span> <span class="toc-text">过滤选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子句组合"><span class="toc-number">5.</span> <span class="toc-text">子句组合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通配符过滤"><span class="toc-number">6.</span> <span class="toc-text">通配符过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达时搜索"><span class="toc-number">7.</span> <span class="toc-text">正则表达时搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建计算字段"><span class="toc-number">8.</span> <span class="toc-text">创建计算字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用函数"><span class="toc-number">9.</span> <span class="toc-text">使用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#汇总数据"><span class="toc-number">10.</span> <span class="toc-text">汇总数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#聚集函数"><span class="toc-number">10.1.</span> <span class="toc-text">聚集函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#聚集不同的值"><span class="toc-number">10.2.</span> <span class="toc-text">聚集不同的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#组合聚集函数"><span class="toc-number">10.3.</span> <span class="toc-text">组合聚集函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组数据"><span class="toc-number">11.</span> <span class="toc-text">分组数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据分组"><span class="toc-number">11.1.</span> <span class="toc-text">数据分组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建分组"><span class="toc-number">11.2.</span> <span class="toc-text">创建分组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤以及排序分组"><span class="toc-number">11.3.</span> <span class="toc-text">过滤以及排序分组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用子查询"><span class="toc-number">12.</span> <span class="toc-text">使用子查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用子查询进行过滤"><span class="toc-number">12.1.</span> <span class="toc-text">使用子查询进行过滤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#作为计算字段使用子查询"><span class="toc-number">12.2.</span> <span class="toc-text">作为计算字段使用子查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#联结表"><span class="toc-number">13.</span> <span class="toc-text">联结表</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -712,22 +715,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LCA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">公共子节点</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">日语学习</a>
               </li>
              
@@ -736,7 +723,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LCA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">公共子节点</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">算法周赛</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -745,10 +752,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">编程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">算法周赛</a>
               </li>
             
             <div class="clearfix"></div>
