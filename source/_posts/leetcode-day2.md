@@ -12,7 +12,7 @@ declare: true
 comments: true
 ---
 
-![图片](#http://api.mtyqx.cn/api/random.php?39)
+![图片](http://api.mtyqx.cn/api/random.php?39)
 <!-- more -->
 
 
