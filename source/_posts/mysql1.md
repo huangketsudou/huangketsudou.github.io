@@ -762,3 +762,100 @@ COMMIT ;
 SAVEPOINT delete1;
 ROLLBACK TO delete1;
 ```
+
+### 字符集
+不同的语言和字符集需要以不同的方式存储和检索，因此mysql需要适应不同的字符集，适应不同的
+排序和检索方法
+- 字符集：字母和符号的集合
+- 编码：为某个字符集成员的内部表示
+- 校对：为规定字符如何比较的指令
+
+#### 使用字符集和校对顺序
+```mysql
+SHOW CHARACTER SET ;
+SHOW COLLATION ;
+SHOW VARIABLES LIKE 'character%';
+CREATE TABLE mytable(
+column1 INT,colunm2 VARCHAR(10)
+)DEFAULT CHARACTER SET hebrew COLLATE hebrew_general_ci;
+CREATE TABLE mytable(
+column1 INT,column2 VARCHAR(10),column3 VARCHAR(10) CHARACTER SET latin1 COLLATE latin_general_ci
+)DEFAULT CHARACTER SET hebrew COLLATE hebrew_general_ci;
+SELECT * FROM customers ORDER BY lastname,firstname COLLATE latin1_general_cs;
+```
+1. 显示所有可用的字符集以及其描述和默认校对
+2. 显示所支持的校对的完整列表
+3. 确定所用的字符集以及校对
+4. 设置表的默认字符集以及校对
+5. 针对表的一个特定列进行设置校对
+6. 需要使用与创建表时不同的校对顺序排序特定的SELECT语句，可在SELECT语句中进行
+
+
+### 安全管理
+对用户的权限进行控制
+
+```mysql
+USE user;
+SELECT user FROM user;
+```
+在mysql中存在一个user数据库，其中包含全部的用户账号
+#### 用户创建删除等
+```mysql
+CREATE USER ben IDENTIFIED By '123456';
+RENAME USER ben TO tom;
+DROP USER tom;
+```
+
+- 创建用户
+- 重命名用户
+- 删除用户
+
+#### 设置访问权限
+上面的用户创建之后没有任何的权限，需要在创建之后修改权限
+
+```mysql
+SHOW GRANTS FOR ben;
+GRANT SELECT ON crashcourse.* TO ben;
+REVOKE SELECT ON crashcourse.* FROM ben; 
+GRANT SELECT,INSERT ON crashcourse.* TO ben;
+SET PASSWORD FOR ben = Password('234567');
+```
+
+1. 查看用户权限
+2. 用GRANT来赋予权限，
+    - 要赋予的权限
+    - 被授予访问权限的数据库或表
+    - 用户名
+<br>上面的GRANT命令允许用户访问crashcourse数据库中所有相关的表，权限中的USAGE表示对任意数据库和数据表没有权限</br>
+3. REVOKE取消赋予用户的权限
+4. GRANT和REVOKE可以在几个层次上控制访问权限
+    - 整个服务器，使用`GRANT ALL`和`REVOKE ALL`;
+    - 整个数据库，使用`ON database.*`
+    - 特定的表，使用`ON database.table`
+    - 特定的列；
+    - 特定的存储过程；
+5. 同一命令给与多个权限
+6. SET PASSWORD用于更改用户口令，新的口令必须传递给Password函数，命令中的FOR 用户可以缺省，表示更新当前用户的口令
+
+### 数据库维护
+对数据文件进行维护，解决方案如下
+- 使用命令行程序mysqldump转存数据库内容到某个外部文件
+- 使用命令行程序mysqlhotcopy从一个数据库中复制所有程序
+- 使用mysql的backup table和select into outfile转存所有的数据到某个外部文件
+#### 进行数据库的维护
+
+```mysql
+ANALYZE TABLE orders;
+CHECK TABLE orders,orderitems;
+```
+
+1. ANALYZE检查表键是否正确
+2. CHECK检查表的多种问题
+
+#### 日志文件
+- 错误日志:包括启动和关闭问题以及任意关键错误的细节，日志名为：hostname.err
+- 查询日志：记录所有的mysql活动，，日志名为：hostname.log
+- 二进制日志：记录更新过数据的所有语句，日志名为：hostname-bin
+- 缓慢查询日志：记录执行缓慢的任何查询，对于数据库的优化很有用，日志名为：hostname-slow.log
+
+### 改善性能
