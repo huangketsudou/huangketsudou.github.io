@@ -11,7 +11,7 @@ declare: true
 comments: true
 ---
 
-![图片](http://api.mtyqx.cn/api/random.php?21)
+![图片](#http://api.mtyqx.cn/api/random.php?21)
 
 mysql的初步学习博客，记录MySQL的一些基本命令以及遇到的相应问题
 <!-- more -->
@@ -156,7 +156,7 @@ SELECT id,quantity,itemprice,quantity*itemprice AS expandedprice FROM orderitems
 
 ```mysql
 SELECT id,UPPER(id) AS id_upcase FROM vendors;
-SELECT id,number FROM orders WHERE DATE (order_Date)='2005-08-01';
+SELECT id,n FROM orders WHERE DATE(order_Date)='2005-08-01';
 ```
 
 1. 将id转换为大写，
@@ -483,3 +483,282 @@ RENAME TABLE back_customers TO customers,back_vendors TO cendors;
 #### 使用视图
 `CREATE VIEW`创建视图，`SHOW CREATE VIEW viewname`查看视图，`DROP VIEW viewname;`删除视图,
 更新视图时先`DROP`后`CREATE`或者`CREATE OR REPLACE VIEW`
+
+```mysql
+CREATE VIEW productcustomers AS SELECT cust_name,cust_contact,prod_id
+FROM customers,orders,orderitems
+WHERE customers.cust_id=orders.cust_id 
+AND orderitems.order_num=orders.order_num;
+SELECT cust_name,cust_contact FROM productcustomers
+WHERE prod_id='TNT2';
+```
+
+#### 利用视图格式化输出、过滤数据，提供计算字段
+在之前讲过用函数来格式化输出，如果这个格式化的结果是经常需要用到的，那么可以创建一个视图保存下来
+对于数据过滤等方式也可以这样使用
+
+```mysql
+SELECT CONCAT(RTRIM(vend_name),'(',RTRIM(vend_country),')') AS vend_title FROM vendors ORDER BY vend_name;
+CREATE VIEW vendorlocations AS SELECT CONCAT(RTRIM(vend_name),'(',RTRIM(vend_country),')') 
+AS vend_title FROM vendors ORDER BY vend_name;
+CREATE VIEW customermaillist AS SELECT cust_id,cust_name,cust_email FROM customers
+WHERE cust_email IS NOT NULL;
+CREATE VIEW orderitemsexpanded AS SELECT order_num,prod_id,quantity,item_price,
+quantity*item_price AS expanded_price FROM orderitems;
+```
+
+1. 格式化输出
+2. 过滤数据
+3. 提供计算字段
+
+#### 视图的更新
+通常来说视图是可以更新的即可以对其使用UPDATE，INSERT和DELETE，但是更新一个视图意味着更新他的基表，但
+并不是所有的视图都是可以更新的，具有以下操作的视图不可以被更新，在大部分情况下，不应该对视图进行更新。
+- 分组 GROUP BY 和 HAVING
+- 联结
+- 子查询
+- 并
+- 聚集函数，如min，max，sum等
+- DISTINCT；
+- 导出列
+
+### 存储过程
+
+存储过程就是为以后的使用而保存的一条或多条mysql语句的集合，视为批文件，注意大部分情况下
+用户只有使用存储过程的权限而没有创建存储过程的权限
+
+#### 使用存储过程
+
+```mysql
+CALL productpricing(@pricelow,@pricehigh,@riceaverage);
+CREATE PROCEDURE productpricing()
+BEGIN
+  SELECT AVG(prod_price) AS priceaverage FROM products;
+end;
+DROP PROCEDURE productpricing;
+CREATE PROCEDURE productpricing(OUT p1 DECIMAL(8,2),OUT ph DECIMAL(8,2),OUT pa DECIMAL(8,2))
+BEGIN 
+  SELECT MIN(prod_price) INTO p1 FROM products;
+  SELECT MAX(prod_price) INTO ph FROM products;
+  SELECT AVG(prod_price) INTO pa FROM products;
+end;
+SELECT @pricehigh,@pricelow,@priceaverage;
+CREATE PROCEDURE ordertotal(
+  IN onumber INT,OUT ototal DECIMAL(8,2)
+)
+BEGIN 
+  SELECT SUM(item_price*quantity) FROM orderitems WHERE order_num =onumber INTO ototal;
+end;
+```
+
+1. 执行存储过程，CALL命令接受存储过程的名字以及需要传递的参数，注意即使过程不需要传参，过程的()也是必须的
+2. 创建存储过程,CREATE PROCEDURE 创建，BEGIN和END定义过程体，
+3. 删除存储过程，注意命令之后不需要用到().
+4. 变量variable是内存中一个特殊的位置,用来存放临时数据,OUT指出相应的参数用来从存储过程
+传出一个值，变量需要明确类型，INTO再过程体中表示select语句检索出的结果保存到相应的变量，
+IN指示将变量传递给存储过程
+5. 在执行了CALL执行存储过程之后，通过`SELECT @变量`获得结果
+6. 该命令中使用IN 指示需要传递给存储过程的参数，执行这个命令使用命令`CALL ordertotal(20005,@total);`,其中传递出的参数也必须使用两个，
+显示合计结果可以使用`SELECT @total;`
+
+#### 创建智能存储过程
+
+```mysql
+-- Name:ordertotal
+-- Parameters:onumber=order number
+--            taxable = 0 if not taxable,1 if taxable
+--            ototal = rder total variable
+
+CREATE PROCEDURE ordertotal(
+  IN onumber INT,
+  IN taxable BOOLEAN,
+  OUT ototal DECIMAL(8,2)
+)COMMENT 'Obtain order total,optionally adding tax'
+BEGIN 
+  -- Declare variable for total
+  DECLARE total DECIMAL(8,2);
+  -- Declare tax percentage
+  DECLARE taxrate INT DEFAULT 6;
+  -- Get the order total
+  SELECT SUM(item_price*quantity) FROM orderitems WHERE order_num = onumber INTO total;
+  -- Is tis taxable?
+  IF taxable THEN
+      -- Yes,so add taxrate to the total
+      SELECT total+(total/100*taxrate) INTO total;
+  end if;
+  -- And fianlly,save to out variable
+  SELECT total INTO ototal;
+end;
+```
+
+- 设置了两个传入参数，一个int，一个bool变量，declare定义了两个局部变量，--用于设置注释说明，comment非必须的参数
+，如果给出，会出现在`SHOW PROCEDURE STATUS`中
+
+#### 检查存储过程
+```mysql
+SHOW CREATE PROCEDURE ordertotal;
+SHOW PROCEDURE STATUS;
+```
+
+- 显示用来创建一个存储过程的CREATE语句
+- 显示何时，由谁创建的存储过程列表(全部的过程)，可以用LIKE限制输出指定的过程`SHOW PROCEDURE STATUS LIKE 'ordertotal';`
+
+### 游标
+mysql操作返回的结果总是与sql语句相匹配的行或者多行无法得到第一行，下一行等操作，游标可以提供在检索结果中前进一行
+或者后退一行这样的操作，mysql中游标只能用于存储过程和函数
+
+<br>使用游标的步骤</br>
+- 在使用游标之前需要先定义它，该过程没有检索数据，只是定义了使用的SELECT语句
+- 声明之后，打开游标以使用，此时前面定义的SELECT语句把数据检索出来
+- 对于填有数据的游标，根据需要取出各行
+- 结束游标使用时，必须关闭游标
+
+#### 定义游标
+```mysql
+CREATE PROCEDURE processorders()
+BEGIN 
+    DECLARE ordernumbers CURSOR FOR 
+    SELECT order_num FROM orders;
+    OPEN ordernumbers;
+    CLOSE ordernumbers;
+END;
+```
+
+
+1. DECLARE 定义一个游标，FOR指示需要使用的SELECT语句
+2. OPEN打开一个游标，CLOSE关闭一个游标
+
+#### 使用游标
+```mysql
+CREATE PROCEDURE processorders()
+BEGIN 
+  -- Declare local variables
+  DECLARE done BOOLEAN DEFAULT 0;
+  DECLARE o INT;
+  DECLARE t DECIMAL(8,2);
+  -- Declare the cursor
+  DECLARE ordernumbers CURSOR FOR 
+  SELECT order_num FROM orders;
+  -- Declare continue handler
+  DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done=1;
+  -- Create a table to store the results
+  CREATE TABLE IF NOT EXISTS ordertotals(order_num INT,total DECIMAL(8,2));
+  -- Open the cursor
+  OPEN ordernumbers;
+  -- Loop through all rows
+  REPEAT 
+      -- get order number
+      FETCH ordernumbers INTO o;
+      -- Grt the total for this order
+      CALL ordertotal(o,1,t);
+      -- Insert order and total into ordertotals
+      INSERT INTO ordertotals(order_num, total) VALUES(o,t);
+      -- End of loop
+  until done end repeat;
+  CLOSE ordernumbers;
+end;
+```
+
+1. `CONTINUE HANDLER`字段表示当`SQLSTATE`出现‘02000’时，设置done为1
+2. REPEAT定义循环体，他反复执行直到done为真，
+3. FETCH检索当前行的某一列，INTO放进某一个变量中
+4. CALl执行某一个存储过程
+
+
+### 触发器
+在某个表发生更改时自动处理，触发器是mysql相应以下语句而自动处理的一条mysql语句，包括
+DELETE、INSERT、UPDATE
+
+#### 创建或者删除触发器
+创建触发器需要
+- 唯一的触发器名
+- 触发器关联的表
+- 触发器应该相应的活动
+- 触发器何时执行
+
+注：在mysql中不同的表可以具有同名的触发器，但是建议最好还是在整个数据库中仅有唯一的触发器
+    <br>只有表支持触发器，视图不支持触发器，临时表也不支持</br>
+```mysql
+CREATE TRIGGER newproduct AFTER INSERT ON products
+FOR EACH ROW SELECT 'product added';
+DROP TRIGGER newproduct;
+```
+`CREATE TRIGGER`创建一个触发期，在insert之后响应（注意是ON）,对每个行的插入显示一次products added文本一次
+
+触发器按照每个表每个事件每次进行定义，每个表每个时间每次只允许响应一个触发器，因此每个表最多支持6个触发器，
+单一触发器不能与多个事件或者多个表进行关联,触发器不能更新或者覆盖
+
+注：如果BEFORE触发器失败，那么mysql将不会执行请求的操作，如果BEFORE触发器或者语句本身失败的话，
+AFTER触发器也不会执行
+
+#### 使用触发器
+
+##### INSERT触发器
+- 在insert触发器代码内，可饮用一个名为NEW的虚拟表，访问被插入的行
+- 在before insert触发器中，NEW中的值也可以被更新，允许更改被插入的值
+- 对于自增的列，NEW在insert之前包含0，在insert执行之后包含新的自动生成的值
+```mysql
+CREATE TRIGGER neworder AFTER INSERT ON orders 
+FOR EACH ROW SELECT NEW.order_num;
+```
+##### DELETE触发器
+- 在delete触发器代码内部，可以引用一个名为OLD的虚拟表，访问被删除的行；
+- OLD中的值全部都是只读的，不可以更新
+```mysql
+CREATE TRIGGER deleteorder BEFORE DELETE ON orders FOR EACH ROW 
+BEGIN 
+    INSERT INTO archive_orders(order_num,order_date,cust_id) VALUES(OLD.order_num,OLD.order_date,OLD.cust_id);
+end;
+```
+
+BEGIN END 可以为触发器设置多条语句
+
+##### UPDATE触发器
+- 在UPDATE触发器中，可以引用一个名为OLD的虚拟表访问以前的值，引用一个名为NEW的虚拟表访问新的更新的值
+- 在BEFORE UPDATE触发器中NEW的只可能也被更新
+- OLD的值全部都是只读的，不能更新
+```mysql
+CREATE TRIGGER udatevendor BEFORE UPDATE ON vendors
+FOR EACH ROW SET NEW.vend_state = UPPER(NEW.vend_state);
+```
+#### 触发器的使用要点
+- 使用触发器来实现数据的一致性，大小写，格式等
+- 创建审计跟踪，即把表格的更改记录到其他的表中
+
+### 事务处理
+事务处理用于维护数据库的完整性，保证成批的mysql要么完全处理，要么不处理。事务处理是一种
+机制，用来管理必须成批执行的mysql操作，以保证数据库不包含不完整的操作结果
+
+- 事务指一组SQL语句
+- 回退指撤销指定SQL语句的过程
+- 提交指将未存储的SQL语句结果写入数据库表
+- 保留点指事务处理中设置的临时占位符，可以对其发布回退
+
+```mysql
+START TRANSACTION ;
+ROLLBACK ;
+```
+`start transaction`标识事务的开始，`ROLLBACK`用于回退命令
+- 可以回退的命令包括INSER、UPDATE、DELETE，不能回退CREATE、DROP
+- ROLLACK只能在一个事务处理内使用
+
+#### 使用commit
+一般的mysql都是直接针对数据库执行和编写的，一般是隐含提交，即提交操作是自动进行的
+使用commit语句进行明确的提交
+
+```mysql
+START TRANSACTION ;
+DELETE FROM orderitems WHERE order_num =20010;
+DELETE FROM orders WHERE order_num=20010;
+COMMIT ;
+```
+利用事务处理来保证相关联的两个表不会被部分删除，而最后的commit仅在不出错时写出更改，
+例如第一条delete语句起作用，而第二条失败，则delete不会被提交，实际上是自动撤销的
+
+#### 使用保留点
+在事务处理块中合适的位置放置占位符，可以在需要回退时回退到某个占位符，称这些占位符为保留点
+,保留点在事务处理完成之后（ROLLBACK或者COMMIT）后自动释放
+```mysql
+SAVEPOINT delete1;
+ROLLBACK TO delete1;
+```
