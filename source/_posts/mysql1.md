@@ -1,5 +1,5 @@
 ---
-title: mysql1
+title: 数据库入门学习
 date: 2020-05-08 22:25:58
 tags:
 - linux
@@ -11,7 +11,7 @@ declare: true
 comments: true
 ---
 
-![图片](#http://api.mtyqx.cn/api/random.php?21)
+![图片](http://api.mtyqx.cn/api/random.php?21)
 
 mysql的初步学习博客，记录MySQL的一些基本命令以及遇到的相应问题
 <!-- more -->
@@ -857,5 +857,3 @@ CHECK TABLE orders,orderitems;
 - 查询日志：记录所有的mysql活动，，日志名为：hostname.log
 - 二进制日志：记录更新过数据的所有语句，日志名为：hostname-bin
 - 缓慢查询日志：记录执行缓慢的任何查询，对于数据库的优化很有用，日志名为：hostname-slow.log
-
-### 改善性能
