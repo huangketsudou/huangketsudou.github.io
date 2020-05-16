@@ -12,7 +12,7 @@ declare: true
 comments: true
 ---
 
-![图片](#http://api.mtyqx.cn/api/random.php?x)
+![图片](http://api.mtyqx.cn/api/random.php?x)
 <!-- more -->
 
 ### 题目25[K个一组翻转链表](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)
