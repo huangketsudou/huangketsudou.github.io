@@ -13,7 +13,7 @@ declare: true
 comments: true
 ---
 
-![图片](http://api.mtyqx.cn/api/random.php?x)
+![图片](http://api.mtyqx.cn/api/random.php?88)
 <!-- more -->
 
 ### 题目473[火柴拼正方形](https://leetcode-cn.com/problems/matchsticks-to-square/)
