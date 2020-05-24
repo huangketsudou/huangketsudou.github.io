@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://huangketsudou.github.io">
-  <title>leetcode-day4 | Ketsudou の blog</title>
+  <title>Category: 算法 | Ketsudou の blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-day4">
-<meta property="og:url" content="http://huangketsudou.github.io/2020/05/15/leetcode-day4/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Ketsudou の blog">
+<meta property="og:url" content="http://huangketsudou.github.io/categories/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/%E7%AE%97%E6%B3%95/page/3/index.html">
 <meta property="og:site_name" content="Ketsudou の blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://api.mtyqx.cn/api/random.php?56">
-<meta property="article:published_time" content="2020-05-15T02:10:02.000Z">
-<meta property="article:modified_time" content="2020-05-15T09:23:22.890Z">
 <meta property="article:author" content="ketsudou">
+<meta property="article:tag" content="ketsudou">
 <meta property="article:tag" content="leetcode">
-<meta property="article:tag" content="算法">
 <meta property="article:tag" content="python">
+<meta property="article:tag" content="后端学习">
+<meta property="article:tag" content="计算机，自学编程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://api.mtyqx.cn/api/random.php?56">
   
     <link rel="alternative" href="/atom.xml" title="Ketsudou の blog" type="application/atom+xml">
   
@@ -172,154 +170,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-day4" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      leetcode-day4
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/05/09/leetcode-69/" class="archive-article-date">
+  	<time datetime="2020-05-09T03:02:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-09</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/05/09/leetcode-69/">leetcode-69</a>
     </h1>
   
 
-        
-        <a href="/2020/05/15/leetcode-day4/" class="archive-article-date">
-  	<time datetime="2020-05-15T02:10:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        <!-- 需要添加的位置 -->
+        <div class="article-info info-on-right">
           
-          <span class="archive-article-date">
-              阅读量 <span id="busuanzi_value_page_pv"></span>
-          </span>
-        
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
-      </span>
-    </span>
-</div>
-
-          
-        <!-- 添加完成 -->
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://api.mtyqx.cn/api/random.php?56" alt="图片"></p>
-<a id="more"></a>
-
-
-<h3 id="题目560和为K的子数组"><a href="#题目560和为K的子数组" class="headerlink" title="题目560和为K的子数组"></a>题目560<a href="https://leetcode-cn.com/problems/subarray-sum-equals-k/" target="_blank" rel="noopener">和为K的子数组</a></h3><p>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。</p>
-<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><p>输入:nums = [1,1,1], k = 2</p>
-<p>输出: 2 , [1,1] 与 [1,1] 为两种不同的情况。</p>
-<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>利用前缀和或者暴力求解都可以</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subarraySum</span><span class="params">(self, nums: List[int], k: int)</span> -&gt; int:</span></span><br><span class="line">        mapping=defaultdict(int)</span><br><span class="line">        mapping[<span class="number">0</span>]=<span class="number">1</span></span><br><span class="line">        prev=<span class="number">0</span></span><br><span class="line">        ans=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            prev+=nums[i]</span><br><span class="line">            ans+=mapping[prev-k]</span><br><span class="line">            mapping[prev]+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subarraySum</span><span class="params">(self, nums: List[int], k: int)</span> -&gt; int:</span></span><br><span class="line">        <span class="comment">#超时</span></span><br><span class="line">        n=len(nums)</span><br><span class="line">        ans=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            prev=<span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(i,n):</span><br><span class="line">                prev+=nums[j]</span><br><span class="line">                <span class="keyword">if</span> prev==k:</span><br><span class="line">                    ans+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="题目457环形数组循环"><a href="#题目457环形数组循环" class="headerlink" title="题目457环形数组循环"></a>题目457<a href="https://leetcode-cn.com/problems/circular-array-loop/" target="_blank" rel="noopener">环形数组循环</a></h3><p>给定一个含有正整数和负整数的环形数组nums。如果某个索引中的数k为正数，则向前移动k个索引<br>。相反，如果是负数(-k)，则向后移动k个索引。因为数组是环形的，所以可以假设最后一个<br>元素的下一个元素是第一个元素，而第一个元素的前一个元素是最后一个元素。</p>
-<p>确定nums中是否存在循环（或周期）。循环必须在相同的索引处开始和结束并且循环长度&gt;1<br>。此外，一个循环中的所有运动都必须沿着同一方向进行。换句话说，一个循环中不能同时包括向<br>前的运动和向后的运动</p>
-<h4 id="用例-1"><a href="#用例-1" class="headerlink" title="用例"></a>用例</h4><p>输入：[2,-1,1,2,2]<br>输出：true</p>
-<p>输入：[-1,2]<br>输出：false</p>
-<p>输入：[-2,1,-1,-2,-2]<br>输出：false</p>
-<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>快慢指针求解，由于链表中可能不止一个所有需要对所有节点至少访问一遍，对已经访问<br>过的节点可以将其置为0，可以将复杂度降到O(N)</p>
-<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># O(N)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">circularArrayLoop</span><span class="params">(self, nums: List[int])</span> -&gt; bool:</span></span><br><span class="line">        n = len(nums)</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>: <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        Next = <span class="keyword">lambda</span> x: (x + nums[x]) % n</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            <span class="keyword">if</span> nums[i] == <span class="number">0</span>: <span class="keyword">continue</span></span><br><span class="line">            fast = slow = i</span><br><span class="line">            slow = Next(slow)</span><br><span class="line">            fast = Next(Next(fast))</span><br><span class="line">            <span class="keyword">while</span> fast != slow:</span><br><span class="line">                slow = Next(slow)</span><br><span class="line">                fast = Next(Next(fast))</span><br><span class="line">            <span class="keyword">if</span> slow == Next(slow):</span><br><span class="line">                nums[slow] = <span class="number">0</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            nxt = Next(slow)</span><br><span class="line">            <span class="keyword">while</span> fast != nxt:</span><br><span class="line">                <span class="keyword">if</span> (nums[slow] &lt; <span class="number">0</span>) != (nums[nxt] &lt; <span class="number">0</span>):</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                slow = nxt</span><br><span class="line">                nxt = Next(slow)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">while</span> nums[fast] != <span class="number">0</span>:</span><br><span class="line">                nxt = Next(fast)</span><br><span class="line">                nums[fast] = <span class="number">0</span></span><br><span class="line">                fast = nxt</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line"><span class="comment">#O(N*N)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">circularArrayLoop</span><span class="params">(self, nums: List[int])</span> -&gt; bool:</span></span><br><span class="line">        n = len(nums)</span><br><span class="line">        <span class="keyword">if</span> n==<span class="number">0</span>:<span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            fast = slow = i</span><br><span class="line">            slow = (slow + nums[slow]) % n</span><br><span class="line">            fast = (fast + nums[fast]) % n</span><br><span class="line">            fast = (fast + nums[fast]) % n</span><br><span class="line">            <span class="keyword">while</span> fast != slow:</span><br><span class="line">                slow = (slow + nums[slow]) % n</span><br><span class="line">                fast = (fast + nums[fast]) % n</span><br><span class="line">                fast = (fast + nums[fast]) % n</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> slow == ((slow + nums[slow]) % n):</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            nxt = (slow + nums[slow]) % n</span><br><span class="line">            <span class="keyword">while</span> fast != nxt:</span><br><span class="line">                <span class="keyword">if</span> (nums[slow] &lt; <span class="number">0</span>) != (nums[nxt] &lt; <span class="number">0</span>):</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                slow = nxt</span><br><span class="line">                nxt = (slow + nums[slow]) % n</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="题目462最少移动次数使数组元素相等-II"><a href="#题目462最少移动次数使数组元素相等-II" class="headerlink" title="题目462最少移动次数使数组元素相等 II"></a>题目462<a href="https://leetcode-cn.com/problems/minimum-moves-to-equal-array-elements-ii/" target="_blank" rel="noopener">最少移动次数使数组元素相等 II</a></h3><p>给定一个非空整数数组，找到使所有数组元素相等所需的最小移动数，其中每次移动可将选定的一个元素加1或减1。 您可以假设数组的长度最多为10000。</p>
-<h4 id="用例-2"><a href="#用例-2" class="headerlink" title="用例"></a>用例</h4><p>输入:[1,2,3]</p>
-<p>输出:2</p>
-<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><ul>
-<li>使用排序寻找中位数</li>
-</ul>
-<p>假设最终数组a中的每个数均为x，那么需要移动的次数即为 |a[0] - x| +<br>|a[1] - x| + … + |a[n-1] - x|。如果我们把数组 a 中的每个数看成水平轴上的一个点<br>，那么根据上面的移动次数公式，我们需要找到在水平轴上找到一个点 x，使得这 N个点到x的距<br>离之和最小。</p>
-<p>这是一个经典的数学问题，当x为这个N个数的中位数时，可以使得距离最小。具体地，若N为奇数<br>，则x必须为这N个数中的唯一中位数；若 N 为偶数，中间的两个数为p和q，中位数为(p + q)/ 2，<br>此时x只要是区间[p, q]中的任意一个数即可。</p>
-<ul>
-<li>可以利用快速选择来实现快速查找中位数</li>
-</ul>
-<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minMoves2</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        nums.sort()</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        k = nums[len(nums) // <span class="number">2</span>]</span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> nums:</span><br><span class="line">            ans += abs(v - k)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minMoves2</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        ans=<span class="number">0</span></span><br><span class="line">        median=self.select(nums,<span class="number">0</span>,len(nums)<span class="number">-1</span>,len(nums)//<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> nums:</span><br><span class="line">            ans+=abs(v-median)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(self, nums, left, right)</span>:</span></span><br><span class="line">        pivotvalue = nums[right]</span><br><span class="line">        i = left</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(left,right+<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> nums[j]&lt;pivotvalue:</span><br><span class="line">                nums[i],nums[j]=nums[j],nums[i]</span><br><span class="line">                i+=<span class="number">1</span></span><br><span class="line">        nums[i],nums[right]=nums[right],nums[i]</span><br><span class="line">        <span class="keyword">return</span> i</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">select</span><span class="params">(self, nums, left, right, k)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> left == right:</span><br><span class="line">            <span class="keyword">return</span> nums[left]</span><br><span class="line">        pivot = self.partition(nums, left, right)</span><br><span class="line">        <span class="keyword">if</span> k == pivot:</span><br><span class="line">            <span class="keyword">return</span> nums[k]</span><br><span class="line">        <span class="keyword">elif</span> k &lt; pivot:</span><br><span class="line">            <span class="keyword">return</span> self.select(nums, left, pivot - <span class="number">1</span>, k)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> self.select(nums, pivot + <span class="number">1</span>, right, k)</span><br></pre></td></tr></table></figure>
-
-      
-
-<!-- 《添加版权声明 -->
-      
-          <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare">
-    <strong class="author">本文作者：</strong>
-    
-      ketsudou
-    
-    <br>
-    <strong class="create-time">发布时间：</strong>
-    2020-05-15
-    <br>
-    <strong class="update-time">最后更新：</strong>
-    2020-05-15
-    <br>
-    <strong class="article-titles">本文标题：</strong>
-    <a href="http://huangketsudou.github.io/2020/05/15/leetcode-day4/" title="leetcode-day4" target="_blank">leetcode-day4</a>
-    <br>
-    <strong class="article-url">本文链接：</strong>
-    <a href="http://huangketsudou.github.io/2020/05/15/leetcode-day4/" title="leetcode-day4" target="_blank">http://huangketsudou.github.io/2020/05/15/leetcode-day4/</a>
-    <br>
-    <strong class="copyright">版权声明：</strong>
-    本作品采用
-    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
-    许可协议进行许可。转载请注明出处
-  </div>
-
-<!-- 添加版权声明》 -->
-
-      
-<!-- 添加版权声明》 -->
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -339,7 +219,7 @@
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -356,153 +236,20 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://huangketsudou.github.io/2020/05/15/leetcode-day4/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/05/16/leetcode-day5/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          leetcode-day5
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/05/14/leetcode-day3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">leetcode-day3</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目560和为K的子数组"><span class="toc-number">1.</span> <span class="toc-text">题目560和为K的子数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例"><span class="toc-number">1.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路"><span class="toc-number">1.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码"><span class="toc-number">1.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目457环形数组循环"><span class="toc-number">2.</span> <span class="toc-text">题目457环形数组循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-1"><span class="toc-number">2.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-1"><span class="toc-number">2.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-1"><span class="toc-number">2.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目462最少移动次数使数组元素相等-II"><span class="toc-number">3.</span> <span class="toc-text">题目462最少移动次数使数组元素相等 II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-2"><span class="toc-number">3.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-2"><span class="toc-number">3.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-2"><span class="toc-number">3.3.</span> <span class="toc-text">代码</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-
-  
-    <section id="comments" class="comments">
-      <style>
-        .comments{margin:30px;padding:10px;background:rgb(255, 255, 255)}
-        @media screen and (max-width:400px){.comments{margin:auto;padding:10px;background:rgb(214, 252, 203)}}
-      </style>
-      <div id="vcomment" class="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-    var notify = 'false' == true ? true : false;
-    var verify = 'false' == true ? true : false;
-    new Valine({
-        av: AV,
-        el: '#vcomment',
-        notify: notify,
-        app_id: "zgSxSngR7rnn3iUI0bxxRTM1-gzGzoHsz",
-        app_key: "7Cqjugfx7RNRhHavSlizCirS",
-        placeholder: "ヾﾉ≧∀≦)o欢迎评论!",
-        avatar:"retro",
-    });
-</script>
-
-    </section>
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/categories/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/%E7%AE%97%E6%B3%95/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/categories/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/%E7%AE%97%E6%B3%95/">1</a><a class="page-number" href="/categories/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/%E7%AE%97%E6%B3%95/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -569,10 +316,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
