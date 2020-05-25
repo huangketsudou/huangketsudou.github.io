@@ -1,5 +1,5 @@
 ---
-title: leetcde-day11
+title: leetcode-day11
 date: 2020-05-23 13:11:19
 tags:
 - leetcode
@@ -13,7 +13,7 @@ declare: true
 comments: true
 ---
 
-![图片](#http://api.mtyqx.cn/api/random.php?x)
+![图片](http://api.mtyqx.cn/api/random.php?569)
 <!-- more -->
 ### 题目[76.最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
 给你一个字符串 S、一个字符串 T，请在字符串 S 里面找出：包含 T 所有字符的最小子串。
