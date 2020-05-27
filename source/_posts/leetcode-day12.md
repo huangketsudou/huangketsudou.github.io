@@ -12,7 +12,7 @@ declare: true
 comments: true
 ---
 
-![图片](http://api.mtyqx.cn/api/random.php?x)
+![图片](http://api.mtyqx.cn/api/random.php?888)
 <!-- more -->
 
 ### 题目[503.下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/)
