@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://huangketsudou.github.io">
-  <title>leetcode-day13 | Ketsudou の blog</title>
+  <title>leetcode-day15 | Ketsudou の blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-day13">
-<meta property="og:url" content="http://huangketsudou.github.io/2020/05/27/leetcode-day13/index.html">
+<meta property="og:title" content="leetcode-day15">
+<meta property="og:url" content="http://huangketsudou.github.io/2020/05/29/leetcode-day15/index.html">
 <meta property="og:site_name" content="Ketsudou の blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://api.mtyqx.cn/api/random.php?617">
-<meta property="article:published_time" content="2020-05-27T02:51:33.000Z">
-<meta property="article:modified_time" content="2020-05-27T03:50:10.663Z">
+<meta property="og:image" content="http://api.mtyqx.cn/api/random.php?x">
+<meta property="article:published_time" content="2020-05-29T03:51:28.000Z">
+<meta property="article:modified_time" content="2020-05-29T06:06:40.550Z">
 <meta property="article:author" content="ketsudou">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://api.mtyqx.cn/api/random.php?617">
+<meta name="twitter:image" content="http://api.mtyqx.cn/api/random.php?x">
   
     <link rel="alternative" href="/atom.xml" title="Ketsudou の blog" type="application/atom+xml">
   
@@ -172,20 +172,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-leetcode-day13" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-leetcode-day15" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      leetcode-day13
+      leetcode-day15
     </h1>
   
 
         
-        <a href="/2020/05/27/leetcode-day13/" class="archive-article-date">
-  	<time datetime="2020-05-27T02:51:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
+        <a href="/2020/05/29/leetcode-day15/" class="archive-article-date">
+  	<time datetime="2020-05-29T03:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
 </a>
         <!-- 需要添加的位置 -->
           
@@ -200,7 +200,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">582字</span>
+        <span class="post-count">980字</span>
       </span>
     </span>
 
@@ -209,7 +209,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -221,22 +221,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://api.mtyqx.cn/api/random.php?617" alt="图片"></p>
+        <p><img src="http://api.mtyqx.cn/api/random.php?x" alt="图片"></p>
 <a id="more"></a>
 
-<h3 id="题目974-和可被-K-整除的子数组"><a href="#题目974-和可被-K-整除的子数组" class="headerlink" title="题目974.和可被 K 整除的子数组"></a>题目<a href="https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/" target="_blank" rel="noopener">974.和可被 K 整除的子数组</a></h3><p>给定一个整数数组 A，返回其中元素之和可被 K 整除的（连续、非空）子数组的数目。</p>
-<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><p>输入：A = [4,5,0,-2,-3,1], K = 5<br>输出：7</p>
-<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>利用前缀和以及哈希表，实现在O(1)时间内查找，两个数同余，那么这两个数的差就能被其除数整除<br>，注意不同的编程语言对于负数求余有不同的表现</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subarraysDivByK</span><span class="params">(self, A: List[int], K: int)</span> -&gt; int:</span></span><br><span class="line">        n = len(A)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> n:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        dictionary = defaultdict(int)</span><br><span class="line">        dictionary[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">        prev = <span class="number">0</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            cur = prev + A[i]</span><br><span class="line">            ans += dictionary[cur % K]</span><br><span class="line">            ans += dictionary[K - cur % K]</span><br><span class="line">            dictionary[cur % K] += <span class="number">1</span></span><br><span class="line">            prev = cur</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subarraysDivByK</span><span class="params">(self, A: List[int], K: int)</span> -&gt; int:</span></span><br><span class="line">        record = &#123;<span class="number">0</span>: <span class="number">1</span>&#125;</span><br><span class="line">        total = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> elem <span class="keyword">in</span> A:</span><br><span class="line">            total += elem</span><br><span class="line">            modulus = total % K</span><br><span class="line">            record[modulus] = record.get(modulus, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> x, cx <span class="keyword">in</span> record.items():</span><br><span class="line">            ans += cx * (cx - <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<h3 id="题目198-打家劫舍"><a href="#题目198-打家劫舍" class="headerlink" title="题目198.打家劫舍"></a>题目<a href="https://leetcode-cn.com/problems/house-robber/" target="_blank" rel="noopener">198.打家劫舍</a></h3><p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同<br>一晚上被小偷闯入，系统会自动报警。<br>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
+<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><p>输入: [1,2,3,1]<br>输出: 4</p>
+<p>输入: [2,7,9,3,1]<br>输出: 12</p>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><ol>
+<li>动态规划，状态转移方程为<code>dp[i]=max(dp[i-2]+nums[i],dp[i-1])</code></li>
+</ol>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rob</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:<span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        n = len(nums)</span><br><span class="line">        <span class="keyword">if</span> n&lt;<span class="number">2</span>:<span class="keyword">return</span> nums[<span class="number">0</span>]</span><br><span class="line">        dp=[<span class="number">0</span>]*n</span><br><span class="line">        dp[<span class="number">0</span>]=nums[<span class="number">0</span>]</span><br><span class="line">        dp[<span class="number">1</span>]=max(nums[<span class="number">0</span>],nums[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n):</span><br><span class="line">            dp[i]=max(dp[i<span class="number">-2</span>]+nums[i],dp[i<span class="number">-1</span>])</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution2</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rob</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        prevmax=<span class="number">0</span></span><br><span class="line">        currmax=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">            tmp=currmax</span><br><span class="line">            currmax=max(prevmax+num,currmax)</span><br><span class="line">            prevmax=tmp</span><br><span class="line">        <span class="keyword">return</span> currmax</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">k=Solution2()</span><br><span class="line">print(k.rob([<span class="number">1</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">4</span>]))</span><br></pre></td></tr></table></figure>
 
-<h3 id="题目508-出现次数最多的子树元素和"><a href="#题目508-出现次数最多的子树元素和" class="headerlink" title="题目508.出现次数最多的子树元素和"></a>题目<a href="https://leetcode-cn.com/problems/most-frequent-subtree-sum/" target="_blank" rel="noopener">508.出现次数最多的子树元素和</a></h3><p>给你一个二叉树的根结点，请你找出出现次数最多的子树元素和。一个结点的「子树元素和」定义为以该结点为根的二叉树上所有结点的元素之和（包括结点本身）。</p>
-<p>你需要返回出现次数最多的子树元素和。如果有多个元素出现的次数相同，返回所有出现次数最多的子树元素和（不限顺序）。</p>
-<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>dfs深度遍历，用dict记录相应出现的值</p>
-<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.left = <span class="literal">None</span></span><br><span class="line">        self.right = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findFrequentTreeSum</span><span class="params">(self, root: TreeNode)</span> -&gt; List[int]:</span></span><br><span class="line">        self.dictionary = defaultdict(int)</span><br><span class="line">        self.maxtime = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(node)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> node:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">            left = dfs(node.left)</span><br><span class="line">            right =dfs(node.right)</span><br><span class="line">            summary = node.val + left + right</span><br><span class="line">            self.dictionary[summary] += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> self.dictionary[summary] &gt; self.maxtime:</span><br><span class="line">                self.maxtime = self.dictionary[summary]</span><br><span class="line">            <span class="keyword">return</span> summary</span><br><span class="line">        dfs(root)</span><br><span class="line">        ans=[]</span><br><span class="line">        <span class="keyword">for</span> key,values <span class="keyword">in</span> self.dictionary.items():</span><br><span class="line">            <span class="keyword">if</span> values == self.maxtime:</span><br><span class="line">                ans.append(key)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<h3 id="题目213-打家劫舍-II"><a href="#题目213-打家劫舍-II" class="headerlink" title="题目213.打家劫舍 II"></a>题目<a href="https://leetcode-cn.com/problems/house-robber-ii/" target="_blank" rel="noopener">213.打家劫舍 II</a></h3><p>你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都围成一圈，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻<br>的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你在不触动警报装置的情况下，能够偷窃到的最高金额。</p>
+<h4 id="用例-1"><a href="#用例-1" class="headerlink" title="用例"></a>用例</h4><p>输入: [2,3,2]<br>输出: 3</p>
+<p>输入: [1,2,3,1]<br>输出: 4</p>
+<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>考虑两种情况第一户不能取以及第二户不能取，再按照打家劫舍的方法计算就可以</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment">#表是循环的，头和尾不能同时取</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rob</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        <span class="comment">#分析可得知，对于循环的表，头和尾不能同时取得，所以将其去掉</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums: <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">core</span><span class="params">(array)</span>:</span></span><br><span class="line">            prev, cur = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> num <span class="keyword">in</span> array:</span><br><span class="line">                tmp=cur</span><br><span class="line">                cur=max(prev+num,cur)</span><br><span class="line">                prev=tmp</span><br><span class="line">            <span class="keyword">return</span> cur</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max(core(nums[<span class="number">1</span>:]),core(nums[:<span class="number">-1</span>])) <span class="keyword">if</span> len(nums)&gt;<span class="number">1</span> <span class="keyword">else</span> nums[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">k=Solution()</span><br><span class="line">print(k.rob([<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>]))</span><br></pre></td></tr></table></figure>
 
-<h3 id="题目513-找树左下角的值"><a href="#题目513-找树左下角的值" class="headerlink" title="题目513.找树左下角的值"></a>题目<a href="https://leetcode-cn.com/problems/find-bottom-left-tree-value/" target="_blank" rel="noopener">513.找树左下角的值</a></h3><p>给定一个二叉树，在树的最后一行找到最左边的值。</p>
-<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><p>层序遍历</p>
-<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findBottomLeftValue</span><span class="params">(self, root: TreeNode)</span> -&gt; int:</span></span><br><span class="line">        target = <span class="number">-1</span></span><br><span class="line">        stack = deque()</span><br><span class="line">        stack.append(root)</span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            node = stack.popleft()</span><br><span class="line">            target = node.val</span><br><span class="line">            <span class="keyword">if</span> node.right:</span><br><span class="line">                stack.append(node.right)</span><br><span class="line">            <span class="keyword">if</span> node.left:</span><br><span class="line">                stack.append(node.left)</span><br><span class="line">        <span class="keyword">return</span> target</span><br></pre></td></tr></table></figure>
+<h3 id="题目337-打家劫舍-III"><a href="#题目337-打家劫舍-III" class="headerlink" title="题目337.打家劫舍 III"></a>题目<a href="https://leetcode-cn.com/problems/house-robber-iii/" target="_blank" rel="noopener">337.打家劫舍 III</a></h3><p>在上次打劫完一条街道之后和一圈房屋后，小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为“根”。 除了“根”之外，每栋房子有且只有一个“父“<br>房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。</p>
+<p>计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。</p>
+<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><p>树形dp问题</p>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        self.val = x</span><br><span class="line">        self.left = <span class="literal">None</span></span><br><span class="line">        self.right = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rob</span><span class="params">(self, root: TreeNode)</span> -&gt; int:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dp</span><span class="params">(node)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> node: <span class="keyword">return</span> [<span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">            left = dp(node.left)</span><br><span class="line">            right = dp(node.right)</span><br><span class="line">            <span class="keyword">return</span> [max(left) + max(right),node.val + left[<span class="number">0</span>] + right[<span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max(dp(root))</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目518-零钱兑换-II"><a href="#题目518-零钱兑换-II" class="headerlink" title="题目518.零钱兑换 II"></a>题目<a href="https://leetcode-cn.com/problems/coin-change-2/" target="_blank" rel="noopener">518.零钱兑换 II</a></h3><p>给定不同面额的硬币和一个总金额。写出函数来计算可以凑成总金额的硬币组合数。假设每一种面额的硬币有无限个。 </p>
+<h4 id="用例-2"><a href="#用例-2" class="headerlink" title="用例"></a>用例</h4><p>输入: amount = 5, coins = [1, 2, 5]<br>输出: 4</p>
+<p>输入: amount = 3, coins = [2]<br>输出: 0</p>
+<h4 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h4><p>动态规划，完全背包问题</p>
+<h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">change</span><span class="params">(self, amount: int, coins: List[int])</span> -&gt; int:</span></span><br><span class="line">        dp = [<span class="number">0</span>] * (<span class="number">1</span> + amount)</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> coin <span class="keyword">in</span> coins:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, amount + <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> i -coin&gt;=<span class="number">0</span>:</span><br><span class="line">                    dp[i] += dp[i - coin]</span><br><span class="line">        <span class="keyword">return</span> dp[amount]</span><br></pre></td></tr></table></figure>
       
 
 <!-- 《添加版权声明 -->
@@ -254,16 +266,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-05-27
+    2020-05-29
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-05-27
+    2020-05-29
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="http://huangketsudou.github.io/2020/05/27/leetcode-day13/" title="leetcode-day13" target="_blank">leetcode-day13</a>
+    <a href="http://huangketsudou.github.io/2020/05/29/leetcode-day15/" title="leetcode-day15" target="_blank">leetcode-day15</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="http://huangketsudou.github.io/2020/05/27/leetcode-day13/" title="leetcode-day13" target="_blank">http://huangketsudou.github.io/2020/05/27/leetcode-day13/</a>
+    <a href="http://huangketsudou.github.io/2020/05/29/leetcode-day15/" title="leetcode-day15" target="_blank">http://huangketsudou.github.io/2020/05/29/leetcode-day15/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -386,7 +398,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://huangketsudou.github.io/2020/05/27/leetcode-day13/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://huangketsudou.github.io/2020/05/29/leetcode-day15/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -400,18 +412,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/28/leetcode-day14/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          leetcode-day14
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/25/leetcode-day12/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">leetcode-day12</div>
+    <a href="/2020/05/28/leetcode-day14/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-day14</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -438,7 +441,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目974-和可被-K-整除的子数组"><span class="toc-number">1.</span> <span class="toc-text">题目974.和可被 K 整除的子数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例"><span class="toc-number">1.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路"><span class="toc-number">1.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码"><span class="toc-number">1.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目508-出现次数最多的子树元素和"><span class="toc-number">2.</span> <span class="toc-text">题目508.出现次数最多的子树元素和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-1"><span class="toc-number">2.1.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-1"><span class="toc-number">2.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目513-找树左下角的值"><span class="toc-number">3.</span> <span class="toc-text">题目513.找树左下角的值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-2"><span class="toc-number">3.1.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-2"><span class="toc-number">3.2.</span> <span class="toc-text">代码</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目198-打家劫舍"><span class="toc-number">1.</span> <span class="toc-text">题目198.打家劫舍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例"><span class="toc-number">1.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路"><span class="toc-number">1.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码"><span class="toc-number">1.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目213-打家劫舍-II"><span class="toc-number">2.</span> <span class="toc-text">题目213.打家劫舍 II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-1"><span class="toc-number">2.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-1"><span class="toc-number">2.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-1"><span class="toc-number">2.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目337-打家劫舍-III"><span class="toc-number">3.</span> <span class="toc-text">题目337.打家劫舍 III</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-2"><span class="toc-number">3.1.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-2"><span class="toc-number">3.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目518-零钱兑换-II"><span class="toc-number">4.</span> <span class="toc-text">题目518.零钱兑换 II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-2"><span class="toc-number">4.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-3"><span class="toc-number">4.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-3"><span class="toc-number">4.3.</span> <span class="toc-text">代码</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
