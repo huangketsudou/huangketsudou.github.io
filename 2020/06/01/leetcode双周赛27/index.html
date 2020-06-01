@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://huangketsudou.github.io">
-  <title>Tag: 算法 | Ketsudou の blog</title>
+  <title>leetcode双周赛27 | Ketsudou の blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ketsudou の blog">
-<meta property="og:url" content="http://huangketsudou.github.io/tags/%E7%AE%97%E6%B3%95/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="leetcode双周赛27">
+<meta property="og:url" content="http://huangketsudou.github.io/2020/06/01/leetcode%E5%8F%8C%E5%91%A8%E8%B5%9B27/index.html">
 <meta property="og:site_name" content="Ketsudou の blog">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://api.mtyqx.cn/api/random.php?x">
+<meta property="article:published_time" content="2020-06-01T07:29:14.000Z">
+<meta property="article:modified_time" content="2020-06-01T08:09:21.386Z">
 <meta property="article:author" content="ketsudou">
-<meta property="article:tag" content="ketsudou">
 <meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="算法">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="后端学习">
-<meta property="article:tag" content="计算机，自学编程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://api.mtyqx.cn/api/random.php?x">
   
     <link rel="alternative" href="/atom.xml" title="Ketsudou の blog" type="application/atom+xml">
   
@@ -170,36 +172,177 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-leetcode双周赛27" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      leetcode双周赛27
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/leetcode%E5%8F%8C%E5%91%A8%E8%B5%9B27/" class="archive-article-date">
+
+        
+        <a href="/2020/06/01/leetcode%E5%8F%8C%E5%91%A8%E8%B5%9B27/" class="archive-article-date">
   	<time datetime="2020-06-01T07:29:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/leetcode%E5%8F%8C%E5%91%A8%E8%B5%9B27/">leetcode双周赛27</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
+        <!-- 需要添加的位置 -->
           
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">2.1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">9分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://api.mtyqx.cn/api/random.php?x" alt="图片"></p>
+<a id="more"></a>
+
+<h3 id="题目460-通过翻转子数组使两个数组相等"><a href="#题目460-通过翻转子数组使两个数组相等" class="headerlink" title="题目460.通过翻转子数组使两个数组相等"></a>题目<a href="https://leetcode-cn.com/problems/make-two-arrays-equal-by-reversing-sub-arrays/" target="_blank" rel="noopener">460.通过翻转子数组使两个数组相等</a></h3><p>给你两个长度相同的整数数组 target 和 arr 。<br>每一步中，你可以选择 arr 的任意 非空子数组 并将它翻转。你可以执行此过程任意次。<br>如果你能让 arr 变得与 target 相同，返回 True；否则，返回 False 。</p>
+<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：target &#x3D; [1,2,3,4], arr &#x3D; [2,4,1,3]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：target &#x3D; [7], arr &#x3D; [7]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>排序后的列表相同就可以了</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canBeEqual</span><span class="params">(self, target: List[int], arr: List[int])</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span> sorted(target) == sorted(arr)</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目1461-检查一个字符串是否包含所有长度为-K-的二进制子串"><a href="#题目1461-检查一个字符串是否包含所有长度为-K-的二进制子串" class="headerlink" title="题目1461.检查一个字符串是否包含所有长度为 K 的二进制子串"></a>题目<a href="https://leetcode-cn.com/problems/check-if-a-string-contains-all-binary-codes-of-size-k/" target="_blank" rel="noopener">1461.检查一个字符串是否包含所有长度为 K 的二进制子串</a></h3><p>给你一个二进制字符串 s 和一个整数 k 。<br>如果所有长度为 k 的二进制字符串都是 s 的子串，请返回 True ，否则请返回 False 。</p>
+<h4 id="用例-1"><a href="#用例-1" class="headerlink" title="用例"></a>用例</h4><p>输入：s = “00110110”, k = 2<br>输出：true</p>
+<p>输入：s = “00110”, k = 2<br>输出：true</p>
+<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>对字符串按照其二进制最大长度进行分割，并加入到set中，如果set的长度等于2**k,就满足</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasAllCodes</span><span class="params">(self, s: str, k: int)</span> -&gt; bool:</span></span><br><span class="line">        string = <span class="string">"&#123;:0"</span>+str(k)+<span class="string">"b&#125;"</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>**k):</span><br><span class="line">            <span class="keyword">if</span> string.format(i) <span class="keyword">not</span> <span class="keyword">in</span> s:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="comment">#一共有2**k种子串</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasAllCodes</span><span class="params">(self, s, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        contains = set()</span><br><span class="line">        N = len(s)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(N - k + <span class="number">1</span>):</span><br><span class="line">            contains.add(s[i:i + k])</span><br><span class="line">        <span class="keyword">return</span> len(contains) == (<span class="number">2</span> ** k)</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目1462-课程安排-IV"><a href="#题目1462-课程安排-IV" class="headerlink" title="题目1462.课程安排 IV"></a>题目<a href="https://leetcode-cn.com/problems/course-schedule-iv/" target="_blank" rel="noopener">1462.课程安排 IV</a></h3><p>你总共需要上 n 门课，课程编号依次为 0 到 n-1 。<br>有的课会有直接的先修课程，比如如果想上课程 0 ，你必须先上课程 1 ，那么会以 [1,0] 数对的形式给出先修课程数对。</p>
+<p>给你课程总数 n 和一个直接先修课程数对列表 prerequisite 和一个查询对列表 queries 。<br>对于每个查询对 queries[i] ，请判断 queries[i][0] 是否是 queries[i][1] 的先修课程。<br>请返回一个布尔值列表，列表中每个元素依次分别对应 queries 每个查询对的判断结果。<br>注意：如果课程 a 是课程 b 的先修课程且课程 b 是课程 c 的先修课程，那么课程 a 也是课程 c 的先修课程。</p>
+<h4 id="用例-2"><a href="#用例-2" class="headerlink" title="用例"></a>用例</h4><p>输入：n = 2, prerequisites = [[1,0]], queries = [[0,1],[1,0]]<br>输出：[false,true]</p>
+<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><ol>
+<li>利用并查集可以做，但是需要利用递归将课程的前置的前置进行遍历</li>
+<li>采用dfs方法进行搜索</li>
+<li>利用动态规划，动态规划的思路为<ol>
+<li>把dp[i][j]定义为i是j的前置课程</li>
+<li>针对某一课程k检验i与j是否能通过k实现链接如果能，则有<code>dp[i][j]=dp[i][k] and dp[k][j]</code></li>
+<li>最后的状态转移方程为：<code>dp[i][k] = dp[i][k] or (dp[i][j] and dp[j][k])</code></li>
+</ol>
+</li>
+</ol>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    这段代码是错误的，因为没有考虑到prerequisites的顺序，如下的两个例子</span></span><br><span class="line"><span class="string">    prerequisites = [[3, 4], [2, 3], [1, 2], [0, 1]]和</span></span><br><span class="line"><span class="string">    prerequisites = [[0,1],[1,2],[2,3],[3,4]]，queries都一样，queries = [[0,4],[4,0],[1,3],[3,0]]</span></span><br><span class="line"><span class="string">    第一个返回的的结果为[False,False,False,False]</span></span><br><span class="line"><span class="string">    第二个返回的结果为[True,False,True,False],第二个返回结果才是对的，因为第一个prere没有正确的将所有的parent给到其子孙上</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">checkIfPrerequisite</span><span class="params">(self, n: int, prerequisites: List[List[int]], queries: List[List[int]])</span> -&gt; List[bool]:</span></span><br><span class="line">        mapping =defaultdict(set)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            mapping[i].add(i)</span><br><span class="line">        <span class="keyword">for</span> prev,nxt <span class="keyword">in</span> prerequisites:</span><br><span class="line">            mapping[nxt].add(prev)</span><br><span class="line">            mapping[nxt]|=mapping[prev]</span><br><span class="line">        print(mapping)</span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">for</span> prev,nxt <span class="keyword">in</span> queries:</span><br><span class="line">            <span class="keyword">if</span> prev <span class="keyword">in</span> mapping[nxt]:</span><br><span class="line">                ans.append(<span class="literal">True</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                ans.append(<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> lru_cache</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment">#一定要用并查集的话用这个</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">checkIfPrerequisite</span><span class="params">(self, n: int, prerequisites: List[List[int]], queries: List[List[int]])</span> -&gt; List[bool]:</span></span><br><span class="line">        req = defaultdict(set)</span><br><span class="line">        <span class="keyword">for</span> L,R <span class="keyword">in</span> prerequisites:</span><br><span class="line">            req[L].add(R)</span><br><span class="line">        <span class="comment">#递归调用将所有的parent给出</span></span><br><span class="line"><span class="meta">        @lru_cache(None)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(L)</span>:</span></span><br><span class="line">            <span class="keyword">for</span> R <span class="keyword">in</span> req[L]:</span><br><span class="line">                recur(R)</span><br><span class="line">            <span class="keyword">for</span> R <span class="keyword">in</span> list(req[L]):</span><br><span class="line">                req[L]|=(req[R])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            recur(i)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [R <span class="keyword">in</span> req[L] <span class="keyword">for</span> L,R <span class="keyword">in</span> queries]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">checkIfPrerequisite</span><span class="params">(self, n: int, prerequisites: List[List[int]], queries: List[List[int]])</span> -&gt; List[bool]:</span></span><br><span class="line">        g = [[<span class="literal">False</span> <span class="keyword">for</span> j <span class="keyword">in</span> range(n)] <span class="keyword">for</span> i <span class="keyword">in</span> range(n)]</span><br><span class="line">        <span class="keyword">for</span> u, v <span class="keyword">in</span> prerequisites: <span class="comment">#表示u是v的前置</span></span><br><span class="line">            g[u][v] = <span class="literal">True</span></span><br><span class="line">        <span class="comment"># i，j之间如果能通过k连接，那么i是j的前置</span></span><br><span class="line">        <span class="comment"># 注意必须先定好中间的节点k，再查看i，j能否通过k来联通</span></span><br><span class="line">        <span class="comment"># 如果先定好i，j，考虑一种情况，1 -&gt; 2 -&gt; 4 -&gt; 3 ,那么检查1 ，3的时候无法通过一个节点正确连接，后面再检查2 3 之后也无法将1 3 连接起来</span></span><br><span class="line">        <span class="comment"># 但如果先检查所有能通过k连接的数据，那么能通过2连接1和4，之后再检查能通过4连接的，就能把1和3连接起来</span></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> range(n):</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">                    g[i][j] = g[i][j] <span class="keyword">or</span> (g[i][k] <span class="keyword">and</span> g[k][j])</span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">for</span> u, v <span class="keyword">in</span> queries:</span><br><span class="line">            ans.append(g[u][v])</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="comment">#dfs遍历法</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">checkIfPrerequisite</span><span class="params">(self, n, prerequisites, queries)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :type prerequisites: List[List[int]]</span></span><br><span class="line"><span class="string">        :type queries: List[List[int]]</span></span><br><span class="line"><span class="string">        :rtype: List[bool]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.graph = collections.defaultdict(list)</span><br><span class="line">        <span class="keyword">for</span> pre <span class="keyword">in</span> prerequisites:</span><br><span class="line">            self.graph[pre[<span class="number">0</span>]].append(pre[<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">return</span> [self.dfs(query[<span class="number">0</span>], query[<span class="number">1</span>]) <span class="keyword">for</span> query <span class="keyword">in</span> queries]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># start -&gt; end ?</span></span><br><span class="line"><span class="meta">    @functools.lru_cache</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, start, end)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> start == end:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> any(self.dfs(nxt, end) <span class="keyword">for</span> nxt <span class="keyword">in</span> self.graph[start])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">k=Solution()</span><br><span class="line">print(k.checkIfPrerequisite(n = <span class="number">5</span>, prerequisites = [[<span class="number">3</span>, <span class="number">4</span>], [<span class="number">2</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">1</span>]], queries = [[<span class="number">0</span>,<span class="number">4</span>],[<span class="number">4</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">0</span>]]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目1463-摘樱桃-II"><a href="#题目1463-摘樱桃-II" class="headerlink" title="题目1463.摘樱桃 II"></a>题目<a href="https://leetcode-cn.com/problems/cherry-pickup-ii/" target="_blank" rel="noopener">1463.摘樱桃 II</a></h3><p>给你一个 rows x cols 的矩阵 grid 来表示一块樱桃地。 grid 中每个格子的数字表示你能获得的樱桃数目。<br>你有两个机器人帮你收集樱桃，机器人 1 从左上角格子 (0,0) 出发，机器人 2 从右上角格子 (0, cols-1) 出发。</p>
+<p>请你按照如下规则，返回两个机器人能收集的最多樱桃数目：</p>
+<ol>
+<li>从格子 (i,j) 出发，机器人可以移动到格子 (i+1, j-1)，(i+1, j) 或者 (i+1, j+1) 。</li>
+<li>当一个机器人经过某个格子时，它会把该格子内所有的樱桃都摘走，然后这个位置会变成空格子，即没有樱桃的格子。</li>
+<li>当两个机器人同时到达同一个格子时，它们中只有一个可以摘到樱桃。</li>
+<li>两个机器人在任意时刻都不能移动到 grid 外面。</li>
+<li>两个机器人最后都要到达 grid 最底下一行。</li>
+</ol>
+<h4 id="用例-3"><a href="#用例-3" class="headerlink" title="用例"></a>用例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：grid &#x3D; [[3,1,1],[2,5,1],[1,5,5],[2,1,1]]</span><br><span class="line">输出：24</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：grid &#x3D; [[1,0,0,0,0,0,1],[2,0,0,0,0,3,0],[2,0,9,0,0,0,0],[0,3,0,5,4,0,0],[1,0,2,3,0,0,6]]</span><br><span class="line">输出：28</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：grid &#x3D; [[1,0,0,3],[0,0,0,3],[0,0,3,3],[9,0,3,3]]</span><br><span class="line">输出：22</span><br></pre></td></tr></table></figure>
+<h4 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h4><ol>
+<li><p>动态规划<br>根据上一行的结果来选择下一行可能可行的结果，定义一个三维的dp数组<code>dp = [[[-1 for k in range(n)] for j in range(n)] for i in range(m)]</code><br>,其中<code>dp[i][j][k]</code>表示在第i行两个机器人分别处在j，k位置时，能取到的最大值，注意当两个机器人走到同一个位置时，需要进去一个数</p>
+</li>
+<li><p>递归<br>暴力搜索</p>
+</li>
+</ol>
+<h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> List</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cherryPickup</span><span class="params">(self, grid: List[List[int]])</span> -&gt; int:</span></span><br><span class="line">        m = len(grid)  <span class="comment"># row</span></span><br><span class="line">        n = len(grid[<span class="number">0</span>])  <span class="comment"># col</span></span><br><span class="line">        dp = [[[<span class="number">-1</span> <span class="keyword">for</span> k <span class="keyword">in</span> range(n)] <span class="keyword">for</span> j <span class="keyword">in</span> range(n)] <span class="keyword">for</span> i <span class="keyword">in</span> range(m)]</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>][n - <span class="number">1</span>] = grid[<span class="number">0</span>][<span class="number">0</span>] + grid[<span class="number">0</span>][n - <span class="number">1</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, m - <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">                <span class="keyword">for</span> k <span class="keyword">in</span> range(n):</span><br><span class="line">                    <span class="keyword">if</span> dp[i][j][k] &lt; <span class="number">0</span>:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">for</span> jj <span class="keyword">in</span> range(j - <span class="number">1</span>, j + <span class="number">2</span>):</span><br><span class="line">                        <span class="keyword">if</span> jj &lt; <span class="number">0</span> <span class="keyword">or</span> jj &gt;= n:</span><br><span class="line">                            <span class="keyword">continue</span></span><br><span class="line">                        <span class="keyword">for</span> kk <span class="keyword">in</span> range(k - <span class="number">1</span>, k + <span class="number">2</span>):</span><br><span class="line">                            <span class="keyword">if</span> kk &lt; <span class="number">0</span> <span class="keyword">or</span> kk &gt;= n:</span><br><span class="line">                                <span class="keyword">continue</span></span><br><span class="line">                            cur = dp[i][j][k] + grid[i + <span class="number">1</span>][jj] + grid[i + <span class="number">1</span>][kk]</span><br><span class="line">                            <span class="keyword">if</span> jj == kk:</span><br><span class="line">                                cur -= grid[i + <span class="number">1</span>][jj]</span><br><span class="line">                            <span class="keyword">if</span> dp[i + <span class="number">1</span>][jj][kk] &lt; <span class="number">0</span> <span class="keyword">or</span> cur &gt; dp[i + <span class="number">1</span>][jj][kk]:</span><br><span class="line">                                dp[i + <span class="number">1</span>][jj][kk] = cur</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(n):</span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> range(n):</span><br><span class="line">                ans = max(ans, dp[<span class="number">-1</span>][j][k])</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cherryPickup</span><span class="params">(self, grid: List[List[int]])</span> -&gt; int:</span></span><br><span class="line">        R, C = len(grid), len(grid[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="meta">        @functools.lru_cache(None)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dp</span><span class="params">(r, c1, c2)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> r == R - <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> grid[r][c1] + grid[r][c2] <span class="keyword">if</span> c1 != c2 <span class="keyword">else</span> grid[r][c1]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> (grid[r][c1] + grid[r][c2] <span class="keyword">if</span> c1 != c2 <span class="keyword">else</span> grid[r][c1]) + max(</span><br><span class="line">                    dp(r + <span class="number">1</span>, a, b) <span class="keyword">for</span> a <span class="keyword">in</span> range(max(<span class="number">0</span>, c1 - <span class="number">1</span>), min(C, c1 + <span class="number">2</span>)) <span class="keyword">for</span> b <span class="keyword">in</span></span><br><span class="line">                    range(max(<span class="number">0</span>, c2 - <span class="number">1</span>), min(C, c2 + <span class="number">2</span>)))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dp(<span class="number">0</span>, <span class="number">0</span>, C - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+<!-- 《添加版权声明 -->
+      
+          <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      ketsudou
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-06-01
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-06-01
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="http://huangketsudou.github.io/2020/06/01/leetcode双周赛27/" title="leetcode双周赛27" target="_blank">leetcode双周赛27</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="http://huangketsudou.github.io/2020/06/01/leetcode双周赛27/" title="leetcode双周赛27" target="_blank">http://huangketsudou.github.io/2020/06/01/leetcode双周赛27/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处
+  </div>
+
+<!-- 添加版权声明》 -->
+
+      
+<!-- 添加版权声明》 -->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -219,7 +362,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -236,589 +379,153 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://huangketsudou.github.io/2020/06/01/leetcode%E5%8F%8C%E5%91%A8%E8%B5%9B27/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/29/leetcode-day15/" class="archive-article-date">
-  	<time datetime="2020-05-29T03:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/06/01/leetcode%E5%91%A8%E8%B5%9B191/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          leetcode周赛191
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/29/leetcode-day15/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-day15</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/29/leetcode-day15/">leetcode-day15</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目460-通过翻转子数组使两个数组相等"><span class="toc-number">1.</span> <span class="toc-text">题目460.通过翻转子数组使两个数组相等</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例"><span class="toc-number">1.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路"><span class="toc-number">1.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码"><span class="toc-number">1.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目1461-检查一个字符串是否包含所有长度为-K-的二进制子串"><span class="toc-number">2.</span> <span class="toc-text">题目1461.检查一个字符串是否包含所有长度为 K 的二进制子串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-1"><span class="toc-number">2.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-1"><span class="toc-number">2.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-1"><span class="toc-number">2.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目1462-课程安排-IV"><span class="toc-number">3.</span> <span class="toc-text">题目1462.课程安排 IV</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-2"><span class="toc-number">3.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-2"><span class="toc-number">3.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-2"><span class="toc-number">3.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目1463-摘樱桃-II"><span class="toc-number">4.</span> <span class="toc-text">题目1463.摘樱桃 II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-3"><span class="toc-number">4.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-3"><span class="toc-number">4.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-3"><span class="toc-number">4.3.</span> <span class="toc-text">代码</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/leetcode-day14/" class="archive-article-date">
-  	<time datetime="2020-05-28T03:28:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/leetcode-day14/">leetcode-day14</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/leetcode-day13/" class="archive-article-date">
-  	<time datetime="2020-05-27T02:51:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/leetcode-day13/">leetcode-day13</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/25/leetcode-day12/" class="archive-article-date">
-  	<time datetime="2020-05-25T08:00:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/25/leetcode-day12/">leetcode-day12</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/24/leetcode%E5%91%A8%E8%B5%9B190/" class="archive-article-date">
-  	<time datetime="2020-05-24T06:01:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/24/leetcode%E5%91%A8%E8%B5%9B190/">leetcode周赛190</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/leetcode-day11/" class="archive-article-date">
-  	<time datetime="2020-05-23T05:11:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/leetcode-day11/">leetcode-day11</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/22/leetcode-day10/" class="archive-article-date">
-  	<time datetime="2020-05-22T02:43:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/22/leetcode-day10/">leetcode-10</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">构造二叉树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/21/leetcode-day9/" class="archive-article-date">
-  	<time datetime="2020-05-21T02:34:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/21/leetcode-day9/">leetcode-day9</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/20/leetcode-day8/" class="archive-article-date">
-  	<time datetime="2020-05-20T03:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/20/leetcode-day8/">leetcode-day8</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/%E7%AE%97%E6%B3%95/page/2/">2</a><a class="page-number" href="/tags/%E7%AE%97%E6%B3%95/page/3/">3</a><a class="extend next" rel="next" href="/tags/%E7%AE%97%E6%B3%95/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:rgb(255, 255, 255)}
+        @media screen and (max-width:400px){.comments{margin:auto;padding:10px;background:rgb(214, 252, 203)}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "zgSxSngR7rnn3iUI0bxxRTM1-gzGzoHsz",
+        app_key: "7Cqjugfx7RNRhHavSlizCirS",
+        placeholder: "ヾﾉ≧∀≦)o欢迎评论!",
+        avatar:"retro",
+    });
+</script>
+
+    </section>
+  
+
+  
+
   
 
 
@@ -885,9 +592,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

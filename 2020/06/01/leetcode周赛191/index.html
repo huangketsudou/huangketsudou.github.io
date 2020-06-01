@@ -6,13 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://huangketsudou.github.io">
-  <title>Tag: 算法 | Ketsudou の blog</title>
+  <title>leetcode周赛191 | Ketsudou の blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ketsudou の blog">
-<meta property="og:url" content="http://huangketsudou.github.io/tags/%E7%AE%97%E6%B3%95/index.html">
+  <meta name="description" content="title: leetcode周赛191date: 2020-06-01 15:29:34tags:  leetcode 算法 pythoncategories: 程序人生 算法declare: truecomments: true">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode周赛191">
+<meta property="og:url" content="http://huangketsudou.github.io/2020/06/01/leetcode%E5%91%A8%E8%B5%9B191/index.html">
 <meta property="og:site_name" content="Ketsudou の blog">
+<meta property="og:description" content="title: leetcode周赛191date: 2020-06-01 15:29:34tags:  leetcode 算法 pythoncategories: 程序人生 算法declare: truecomments: true">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://api.mtyqx.cn/api/random.php?x">
+<meta property="og:image" content="http://huangketsudou.github.io/2020/06/01/img/%E5%85%AC%E5%BC%8F1.png">
+<meta property="article:published_time" content="2020-06-01T07:29:34.693Z">
+<meta property="article:modified_time" content="2020-06-01T08:30:49.053Z">
 <meta property="article:author" content="ketsudou">
 <meta property="article:tag" content="ketsudou">
 <meta property="article:tag" content="leetcode">
@@ -20,6 +26,7 @@
 <meta property="article:tag" content="后端学习">
 <meta property="article:tag" content="计算机，自学编程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://api.mtyqx.cn/api/random.php?x">
   
     <link rel="alternative" href="/atom.xml" title="Ketsudou の blog" type="application/atom+xml">
   
@@ -170,655 +177,288 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-leetcode周赛191" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      leetcode周赛191
+    </h1>
+  
+
+        
+        <a href="/2020/06/01/leetcode%E5%91%A8%E8%B5%9B191/" class="archive-article-date">
+  	<time datetime="2020-06-01T07:29:34.693Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+</a>
+        <!-- 需要添加的位置 -->
+          
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.6k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">7分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: leetcode周赛191<br>date: 2020-06-01 15:29:34<br>tags:</p>
+<ul>
+<li>leetcode</li>
+<li>算法</li>
+<li>python<br>categories:</li>
+<li>程序人生</li>
+<li>算法<br>declare: true<br>comments: true</li>
+</ul>
+<p><img src="http://api.mtyqx.cn/api/random.php?x" alt="图片"></p>
+<a id="more"></a>
+
+<h3 id="题目1464-数组中两元素的最大乘积"><a href="#题目1464-数组中两元素的最大乘积" class="headerlink" title="题目1464.数组中两元素的最大乘积"></a>题目<a href="https://leetcode-cn.com/problems/maximum-product-of-two-elements-in-an-array/" target="_blank" rel="noopener">1464.数组中两元素的最大乘积</a></h3><p>给你一个整数数组 nums，请你选择数组的两个不同下标 i 和 j，使 (nums[i]-1)*(nums[j]-1) 取得最大值。</p>
+<p>请你计算并返回该式的最大值</p>
+<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [3,4,5,2]</span><br><span class="line">输出：12</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [1,5,4,5]</span><br><span class="line">输出：16</span><br></pre></td></tr></table></figure>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>找两个最大值输出就好</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProduct</span><span class="params">(self, nums: List[int])</span> -&gt; int:</span></span><br><span class="line">        nums.sort()</span><br><span class="line">        <span class="keyword">return</span> max((nums[<span class="number">0</span>] - <span class="number">1</span>) * (nums[<span class="number">1</span>] - <span class="number">1</span>), (nums[<span class="number">-2</span>] - <span class="number">1</span>) * (nums[<span class="number">-1</span>] - <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">k=Solution()</span><br><span class="line">print(k.maxProduct([<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目1465-切割后面积最大的蛋糕"><a href="#题目1465-切割后面积最大的蛋糕" class="headerlink" title="题目1465.切割后面积最大的蛋糕"></a>题目<a href="https://leetcode-cn.com/problems/maximum-area-of-a-piece-of-cake-after-horizontal-and-vertical-cuts/" target="_blank" rel="noopener">1465.切割后面积最大的蛋糕</a></h3><p>矩形蛋糕的高度为 h 且宽度为 w，给你两个整数数组 horizontalCuts 和 verticalCuts，其中 horizontalCuts[i] 是从矩形蛋糕顶部到第  i 个水平<br>切口的距离，类似地， verticalCuts[j] 是从矩形蛋糕的左侧到第 j 个竖直切口的距离。</p>
+<p>请你按数组 horizontalCuts 和 verticalCuts 中提供的水平和竖直位置切割后，请你找出 面积最大 的那份蛋糕，并返回其 面积 。由于答案可能是一个很大的<br>数字，因此需要将结果对 10^9 + 7 取余后返回。</p>
+<h4 id="用例-1"><a href="#用例-1" class="headerlink" title="用例"></a>用例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：h &#x3D; 5, w &#x3D; 4, horizontalCuts &#x3D; [1,2,4], verticalCuts &#x3D; [1,3]</span><br><span class="line">输出：4</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：h &#x3D; 5, w &#x3D; 4, horizontalCuts &#x3D; [3,1], verticalCuts &#x3D; [1]</span><br><span class="line">输出：6</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：h &#x3D; 5, w &#x3D; 4, horizontalCuts &#x3D; [3], verticalCuts &#x3D; [3]</span><br><span class="line">输出：9</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>找最大的长和宽就好</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxArea</span><span class="params">(self, h: int, w: int, horizontalCuts: List[int], verticalCuts: List[int])</span> -&gt; int:</span></span><br><span class="line">        prev = <span class="number">0</span></span><br><span class="line">        heights = set()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> sorted(horizontalCuts):</span><br><span class="line">            heights.add(i - prev)</span><br><span class="line">            prev = i</span><br><span class="line">        heights.add(h - prev)</span><br><span class="line">        width = set()</span><br><span class="line">        prev = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> sorted(verticalCuts):</span><br><span class="line">            width.add(j- prev)</span><br><span class="line">            prev = j</span><br><span class="line">        width.add(w - prev)</span><br><span class="line">        heights = list(heights)</span><br><span class="line">        width = list(width)</span><br><span class="line">        heights.sort()</span><br><span class="line">        width.sort()</span><br><span class="line">        <span class="keyword">return</span> heights[<span class="number">-1</span>]*width[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目1466-重新规划路线"><a href="#题目1466-重新规划路线" class="headerlink" title="题目1466.重新规划路线"></a>题目<a href="https://leetcode-cn.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/" target="_blank" rel="noopener">1466.重新规划路线</a></h3><p>n 座城市，从 0 到 n-1 编号，其间共有 n-1 条路线。因此，要想在两座不同城市之间旅行只有唯一一条路线可供选择（路线网形成一颗树）。去年，交通运输部决定重新规划路线，以改变交通拥堵的状况。<br>路线用 connections 表示，其中 connections[i] = [a, b] 表示从城市 a 到 b 的一条有向路线。</p>
+<p>今年，城市 0 将会举办一场大型比赛，很多游客都想前往城市 0 。<br>请你帮助重新规划路线方向，使每个城市都可以访问城市 0 。返回需要变更方向的最小路线数。<br>题目数据 保证 每个城市在重新规划路线方向后都能到达城市 0 。</p>
+<h4 id="用例-2"><a href="#用例-2" class="headerlink" title="用例"></a>用例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n &#x3D; 6, connections &#x3D; [[0,1],[1,3],[2,3],[4,0],[4,5]]</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：n &#x3D; 5, connections &#x3D; [[1,0],[1,2],[3,2],[3,4]]</span><br><span class="line">输出：2</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><p>从0出发，bfs遍历</p>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minReorder</span><span class="params">(self, n: int, connections: List[List[int]])</span> -&gt; int:</span></span><br><span class="line">        outnode = defaultdict(list)</span><br><span class="line">        innode = defaultdict(list)</span><br><span class="line">        <span class="keyword">for</span> start,end <span class="keyword">in</span> connections:</span><br><span class="line">            outnode[start].append(end)</span><br><span class="line">            innode[end].append(start)</span><br><span class="line">        stack = deque()</span><br><span class="line">        stack.append(<span class="number">0</span>)</span><br><span class="line">        visited = set()</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            node = stack.popleft()</span><br><span class="line">            <span class="keyword">if</span> node <span class="keyword">in</span> outnode:</span><br><span class="line">                <span class="keyword">for</span> k <span class="keyword">in</span> outnode[node]:</span><br><span class="line">                    <span class="keyword">if</span> k <span class="keyword">not</span> <span class="keyword">in</span> visited:</span><br><span class="line">                        stack.append(k)</span><br><span class="line">                        ans += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> node <span class="keyword">in</span> innode:</span><br><span class="line">                <span class="keyword">for</span> g <span class="keyword">in</span> innode[node]:</span><br><span class="line">                    stack.append(g)</span><br><span class="line">            visited.add(node)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">k=Solution()</span><br><span class="line">print(k.minReorder(n = <span class="number">3</span>, connections = [[<span class="number">1</span>,<span class="number">0</span>],[<span class="number">2</span>,<span class="number">0</span>]]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目1467-两个盒子中球的颜色数相同的概率"><a href="#题目1467-两个盒子中球的颜色数相同的概率" class="headerlink" title="题目1467.两个盒子中球的颜色数相同的概率"></a>题目<a href="https://leetcode-cn.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/" target="_blank" rel="noopener">1467.两个盒子中球的颜色数相同的概率</a></h3><p>桌面上有 2n 个颜色不完全相同的球，球上的颜色共有 k 种。给你一个大小为 k 的整数数组 balls ，其中 balls[i] 是颜色为 i 的球的数量。<br>所有的球都已经 随机打乱顺序 ，前 n 个球放入第一个盒子，后 n 个球放入另一个盒子（请认真阅读示例 2 的解释部分）。</p>
+<p>注意：这两个盒子是不同的。例如，两个球颜色分别为 a 和 b，盒子分别为 [] 和 ()，那么 [a] (b) 和 [b] (a) 这两种分配方式是不同的（请认真阅读示例 1 的解释部分）。<br>请计算「两个盒子中球的颜色数相同」的情况的概率。</p>
+<h4 id="用例-3"><a href="#用例-3" class="headerlink" title="用例"></a>用例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：balls &#x3D; [1,1]</span><br><span class="line">输出：1.00000</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：balls &#x3D; [2,1,1]</span><br><span class="line">输出：0.66667</span><br></pre></td></tr></table></figure>
+<h4 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h4><p>一个排列组合问题，看下这个<a href="https://zhuanlan.zhihu.com/p/36910867" target="_blank" rel="noopener">视频</a><br>dfs遍历<br>题解区题解-<a href="https://leetcode-cn.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/solution/python3-mei-ju-2372ms-by-sth4nothing/" target="_blank" rel="noopener">sth4nothong</a><br>枚举第一个盒子的所有情况，计算两个盒子中球的颜色数相同的排列总数，从而求得概率。耗时2372ms。</p>
+<p>python的函数itertools.product可以求多个列表的笛卡尔积，利用这个函数枚举第一个盒子中各种颜色的球的数目。<br>然后判断两个盒子中球的颜色种类是否一样。如果一样，则计算当前情况下的排列数目。否则跳过。<br>假如用数组nums表示某个盒子中各种颜色的球的个数，由排列组合的知识，可以得到该盒子中球的排列数目为:<br>    <img src="../img/%E5%85%AC%E5%BC%8F1.png" alt="公式"></p>
+<p>将两个盒子中的排列数目求积就是当前情况下的排列数。<br>将所有两个盒子中颜色种类相同的排列求和就是颜色数相同的所有情况。<br>概率 = 两个盒子中球的颜色数相同的排列总数 / 球的所有排列方案总数</p>
+<h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getProbability</span><span class="params">(self, balls: List[int])</span> -&gt; float:</span></span><br><span class="line">        <span class="keyword">import</span> sys</span><br><span class="line">        sys.setrecursionlimit(<span class="number">10000000</span>)</span><br><span class="line">        <span class="keyword">import</span> functools</span><br><span class="line"><span class="meta">        @functools.lru_cache(None)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">c</span><span class="params">(a)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> a == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> a * c(a - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        total = sum(balls)</span><br><span class="line">        zong = c(total)</span><br><span class="line">        <span class="keyword">for</span> b <span class="keyword">in</span> balls:</span><br><span class="line">            zong //= c(b)</span><br><span class="line"></span><br><span class="line">        cc = c(total // <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">import</span> functools</span><br><span class="line"><span class="meta">        @functools.lru_cache(None)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(pre, i, a, b, px, py)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> i == len(balls):</span><br><span class="line">                <span class="keyword">if</span> pre == total / <span class="number">2</span>:</span><br><span class="line">                    <span class="keyword">if</span> a == b:</span><br><span class="line">                        <span class="keyword">return</span> cc / px * cc / py</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">            res = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(balls[i] + <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> j == <span class="number">0</span>:</span><br><span class="line">                    res += dfs(pre, i + <span class="number">1</span>, a, b + <span class="number">1</span>, px * c(j), py * c(balls[i] - j))</span><br><span class="line">                <span class="keyword">elif</span> j != balls[i]:</span><br><span class="line">                    res += dfs(pre + j, i + <span class="number">1</span>, a + <span class="number">1</span>, b + <span class="number">1</span>, px * c(j), py * c(balls[i] - j))</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    res += dfs(pre + j, i + <span class="number">1</span>, a + <span class="number">1</span>, b, px * c(j), py * c(balls[i] - j))</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">        res = dfs(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> res / zong</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getProbability</span><span class="params">(self, balls: List[int])</span> -&gt; float:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">arrangement</span><span class="params">(nums: Sequence[int])</span>:</span></span><br><span class="line">            s = sum(nums)</span><br><span class="line">            t = math.factorial(s)</span><br><span class="line">            <span class="keyword">for</span> b <span class="keyword">in</span> nums:</span><br><span class="line">                t //= math.factorial(b)</span><br><span class="line">            <span class="keyword">return</span> t</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">(nums: Sequence[int])</span>:</span></span><br><span class="line">            <span class="keyword">return</span> sum(b != <span class="number">0</span> <span class="keyword">for</span> b <span class="keyword">in</span> nums)</span><br><span class="line"></span><br><span class="line">        n = sum(balls) // <span class="number">2</span></span><br><span class="line">        total = arrangement(balls)</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> left <span class="keyword">in</span> itertools.product(*(range(b + <span class="number">1</span>) <span class="keyword">for</span> b <span class="keyword">in</span> balls)):</span><br><span class="line">            <span class="keyword">if</span> sum(left) != n:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            right = tuple(b - v <span class="keyword">for</span> b, v <span class="keyword">in</span> zip(balls, left))</span><br><span class="line">            <span class="keyword">if</span> count(left) == count(right):</span><br><span class="line">                ans += arrangement(left) * arrangement(right)</span><br><span class="line">        <span class="keyword">return</span> ans / total</span><br></pre></td></tr></table></figure>
+      
+
+<!-- 《添加版权声明 -->
+      
+          <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+
+      
+<!-- 添加版权声明》 -->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/leetcode%E5%8F%8C%E5%91%A8%E8%B5%9B27/" class="archive-article-date">
-  	<time datetime="2020-06-01T07:29:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/leetcode%E5%8F%8C%E5%91%A8%E8%B5%9B27/">leetcode双周赛27</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://huangketsudou.github.io/2020/06/01/leetcode%E5%91%A8%E8%B5%9B191/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/29/leetcode-day15/" class="archive-article-date">
-  	<time datetime="2020-05-29T03:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/01/leetcode%E5%8F%8C%E5%91%A8%E8%B5%9B27/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode双周赛27</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/29/leetcode-day15/">leetcode-day15</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目1464-数组中两元素的最大乘积"><span class="toc-number">1.</span> <span class="toc-text">题目1464.数组中两元素的最大乘积</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例"><span class="toc-number">1.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路"><span class="toc-number">1.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码"><span class="toc-number">1.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目1465-切割后面积最大的蛋糕"><span class="toc-number">2.</span> <span class="toc-text">题目1465.切割后面积最大的蛋糕</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-1"><span class="toc-number">2.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-1"><span class="toc-number">2.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-1"><span class="toc-number">2.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目1466-重新规划路线"><span class="toc-number">3.</span> <span class="toc-text">题目1466.重新规划路线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-2"><span class="toc-number">3.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-2"><span class="toc-number">3.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-2"><span class="toc-number">3.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目1467-两个盒子中球的颜色数相同的概率"><span class="toc-number">4.</span> <span class="toc-text">题目1467.两个盒子中球的颜色数相同的概率</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-3"><span class="toc-number">4.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-3"><span class="toc-number">4.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-3"><span class="toc-number">4.3.</span> <span class="toc-text">代码</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/28/leetcode-day14/" class="archive-article-date">
-  	<time datetime="2020-05-28T03:28:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/28/leetcode-day14/">leetcode-day14</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/27/leetcode-day13/" class="archive-article-date">
-  	<time datetime="2020-05-27T02:51:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/27/leetcode-day13/">leetcode-day13</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/25/leetcode-day12/" class="archive-article-date">
-  	<time datetime="2020-05-25T08:00:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/25/leetcode-day12/">leetcode-day12</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/24/leetcode%E5%91%A8%E8%B5%9B190/" class="archive-article-date">
-  	<time datetime="2020-05-24T06:01:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/24/leetcode%E5%91%A8%E8%B5%9B190/">leetcode周赛190</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/leetcode-day11/" class="archive-article-date">
-  	<time datetime="2020-05-23T05:11:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/leetcode-day11/">leetcode-day11</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/22/leetcode-day10/" class="archive-article-date">
-  	<time datetime="2020-05-22T02:43:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/22/leetcode-day10/">leetcode-10</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">构造二叉树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/21/leetcode-day9/" class="archive-article-date">
-  	<time datetime="2020-05-21T02:34:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/21/leetcode-day9/">leetcode-day9</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/20/leetcode-day8/" class="archive-article-date">
-  	<time datetime="2020-05-20T03:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/20/leetcode-day8/">leetcode-day8</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/%E7%AE%97%E6%B3%95/page/2/">2</a><a class="page-number" href="/tags/%E7%AE%97%E6%B3%95/page/3/">3</a><a class="extend next" rel="next" href="/tags/%E7%AE%97%E6%B3%95/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:rgb(255, 255, 255)}
+        @media screen and (max-width:400px){.comments{margin:auto;padding:10px;background:rgb(214, 252, 203)}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "zgSxSngR7rnn3iUI0bxxRTM1-gzGzoHsz",
+        app_key: "7Cqjugfx7RNRhHavSlizCirS",
+        placeholder: "ヾﾉ≧∀≦)o欢迎评论!",
+        avatar:"retro",
+    });
+</script>
+
+    </section>
+  
+
+  
+
   
 
 
@@ -885,9 +525,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
