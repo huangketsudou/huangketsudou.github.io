@@ -43,7 +43,7 @@ class Solution:
         for i in range(n):
             cur = prev + A[i]
             ans += dictionary[cur % K]
-            ans += dictionary[K - cur % K]
+            #ans += dictionary[K - cur % K]
             dictionary[cur % K] += 1
             prev = cur
         return ans
