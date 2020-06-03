@@ -12,7 +12,7 @@ declare: true
 comments: true
 ---
 
-![图片](http://api.mtyqx.cn/api/random.php?x)
+![图片](http://api.mtyqx.cn/api/random.php?2365)
 <!-- more -->
 
 ### 题目[198.打家劫舍](https://leetcode-cn.com/problems/house-robber/)
