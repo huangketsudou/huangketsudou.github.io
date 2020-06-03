@@ -12,7 +12,7 @@ declare: true
 comments: true
 ---
 
-![图片](http://api.mtyqx.cn/api/random.php?x)
+![图片](http://api.mtyqx.cn/api/random.php?142)
 <!-- more -->
 
 ### 题目[460.通过翻转子数组使两个数组相等](https://leetcode-cn.com/problems/make-two-arrays-equal-by-reversing-sub-arrays/)
