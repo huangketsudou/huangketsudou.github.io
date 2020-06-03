@@ -12,7 +12,7 @@ declare: true
 comments: true
 ---
 
-![图片](http://api.mtyqx.cn/api/random.php?x)
+![图片](http://api.mtyqx.cn/api/random.php?135)
 <!-- more -->
 
 ### 题目[面试题64. 求1+2+…+n](https://leetcode-cn.com/problems/qiu-12n-lcof/)
