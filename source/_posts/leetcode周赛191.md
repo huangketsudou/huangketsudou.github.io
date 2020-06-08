@@ -10,6 +10,7 @@ categories:
 - 算法
 declare: true
 comments: true
+---
 
 ![图片](http://api.mtyqx.cn/api/random.php?x)
 <!-- more -->
