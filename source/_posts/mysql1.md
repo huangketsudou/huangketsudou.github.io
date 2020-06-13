@@ -178,7 +178,7 @@ SELECT SUM(price) AS item_sum FROM orderitems WHERE order_num=20005;
 SELECT SUM(itemprice*quantity) AS total_price FROM orderitems WHERE order_num=20005;
 ```
 1. AVG函数返回指定列的均值，第二个命令返回指定id=1003的pro_price列的均值，忽略NULL
-2.COUNT(*)对表中的所有列进行计数，不论其中的值是否为NULL，COUNT(column)返回某一列的行数，忽略NULL值
+2. COUNT(*)对表中的所有列进行计数，不论其中的值是否为NULL，COUNT(column)返回某一列的行数，忽略NULL值
 3. MAX返回列中的最大值，忽视列中为NULL的行，如果用于文本表示，MIN则相应返回最小值
 4. SUM计算列的总数，也可以用于数值计算，忽略NULL
 
