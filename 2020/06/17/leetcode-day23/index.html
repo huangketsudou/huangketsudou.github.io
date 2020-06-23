@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://huangketsudou.github.io">
-  <title>2019年日记整理 | Ketsudou の blog</title>
+  <title>leetcode-day23 | Ketsudou の blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="2019年日记整理">
-<meta property="og:url" content="http://huangketsudou.github.io/2020/05/08/2019/index.html">
+<meta property="og:title" content="leetcode-day23">
+<meta property="og:url" content="http://huangketsudou.github.io/2020/06/17/leetcode-day23/index.html">
 <meta property="og:site_name" content="Ketsudou の blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://api.mtyqx.cn/api/random.php?5">
-<meta property="article:published_time" content="2020-05-08T08:06:35.000Z">
-<meta property="article:modified_time" content="2020-05-15T09:23:22.720Z">
+<meta property="og:image" content="http://api.mtyqx.cn/api/random.php?1">
+<meta property="article:published_time" content="2020-06-17T11:48:10.000Z">
+<meta property="article:modified_time" content="2020-06-19T13:57:47.150Z">
 <meta property="article:author" content="ketsudou">
-<meta property="article:tag" content="日语">
-<meta property="article:tag" content="日记">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://api.mtyqx.cn/api/random.php?5">
+<meta name="twitter:image" content="http://api.mtyqx.cn/api/random.php?1">
   
     <link rel="alternative" href="/atom.xml" title="Ketsudou の blog" type="application/atom+xml">
   
@@ -171,20 +172,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2019" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-leetcode-day23" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      2019年日记整理
+      leetcode-day23
     </h1>
   
 
         
-        <a href="/2020/05/08/2019/" class="archive-article-date">
-  	<time datetime="2020-05-08T08:06:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
+        <a href="/2020/06/17/leetcode-day23/" class="archive-article-date">
+  	<time datetime="2020-06-17T11:48:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
 </a>
         <!-- 需要添加的位置 -->
           
@@ -199,7 +200,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">238字</span>
+        <span class="post-count">938字</span>
       </span>
     </span>
 
@@ -208,7 +209,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -220,26 +221,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://api.mtyqx.cn/api/random.php?5" alt="图片"></p>
+        <p><img src="http://api.mtyqx.cn/api/random.php?1" alt="图片"></p>
 <a id="more"></a>
 
+<h3 id="题目1014-最佳观光组合"><a href="#题目1014-最佳观光组合" class="headerlink" title="题目1014.最佳观光组合"></a>题目<a href="https://leetcode-cn.com/problems/best-sightseeing-pair/" target="_blank" rel="noopener">1014.最佳观光组合</a></h3><p>给定正整数数组 A，A[i] 表示第 i 个观光景点的评分，并且两个景点 i 和 j 之间的距离为 j - i。</p>
+<p>一对景点（i &lt; j）组成的观光组合的得分为（A[i] + A[j] + i - j）：景点的评分之和减去它们两者之间的距离。</p>
+<p>返回一对观光景点能取得的最高分。</p>
+<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><p>输入：[8,1,5,2,6]<br>输出：11<br>解释：i = 0, j = 2, A[i] + A[j] + i - j = 8 + 5 + 0 - 2 = 11</p>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>A[i]+A[j]+i-j可以拆分为A[i]+i和A[j]-j两部分，对于固定的j，只要能保证A[i]+i为最大值，就能保证对当前的j，点数最大，而A[i]+i得最大值<br>在遍历过程中记录就可以了，可以在O(N)内完成工作</p>
+<p>技巧：两个在变的东西，拆分为两部分，一部分动一部分不动</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxScoreSightseeingPair</span><span class="params">(<span class="keyword">int</span>[] A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxPrefix = A[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; A.length; i++) &#123;</span><br><span class="line">            ans = Math.max(maxPrefix+A[i]-i,ans);</span><br><span class="line">            maxPrefix = Math.max(maxPrefix,A[i]+i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2019年1月1日"><a href="#2019年1月1日" class="headerlink" title="2019年1月1日"></a>2019年1月1日</h3><p>日文：<br>新年、あけましておめでとうございます。今日は新年の第一日、私はテストのことをしばらく<br>置いて、友と一緒に遊んできました。２０１９には皆様のご成功をお祈りいたします。</p>
-<p>日文修改：</p>
-<p>新年、あけましておめでとうございます。今日は新年の第一日、私はテストのことをしばらく<br>置いて、友と一緒に遊んできました。２０１９には皆様のご成功をお祈りいたします。</p>
-<h3 id="2019年1月24日"><a href="#2019年1月24日" class="headerlink" title="2019年1月24日"></a>2019年1月24日</h3><p>日文：</p>
-<p> 学年末のテストは三日まえ終わります。今は車を乗って、家に帰ります。２０日のちゃんと<br> 利用し、あちこちで遊ぶと思います。</p>
-<p> 日文修改：</p>
-<p> 学年末のテストは三日まえ終わります。今は車を乗って、家に帰ります。２０日のちゃんと<br> 利用し、あちこちで遊ぶと思います。</p>
-<h3 id="2019年1月31日"><a href="#2019年1月31日" class="headerlink" title="2019年1月31日"></a>2019年1月31日</h3><p>日文：</p>
-<p>最近風邪を引きます。鼻水がいっぱい出る。夜寝る時、呼吸はちょっと困難だ。早く治りたい、いい新年を過ごします。</p>
-<p>日文修改：</p>
-<p>最近風邪を引きます。鼻水がいっぱい出る。夜寝る時、呼吸はちょっと困難だ。早く治りたい、いい新年を過ごします。</p>
-<h3 id="2019年2月4日"><a href="#2019年2月4日" class="headerlink" title="2019年2月4日"></a>2019年2月4日</h3><p>日文：</p>
-<p>明日は春節です。母の家族と一緒に写真を取るのは数日前決まりました。３０人を超える大家族だ。</p>
-<p>日文修改：</p>
-<p>明日は春節です。母の家族と一緒に写真を取るのは数日前決まりました。３０人を超える大家族だ。</p>
+<h3 id="题目1028-从先序遍历还原二叉树"><a href="#题目1028-从先序遍历还原二叉树" class="headerlink" title="题目1028.从先序遍历还原二叉树"></a>题目<a href="https://leetcode-cn.com/problems/recover-a-tree-from-preorder-traversal/" target="_blank" rel="noopener">1028.从先序遍历还原二叉树</a></h3><p>我们从二叉树的根节点 root 开始进行深度优先搜索。</p>
+<p>在遍历中的每个节点处，我们输出 D 条短划线（其中 D 是该节点的深度），然后输出该节点的值。（如果节点的深度为 D，则其直接子节点的深度为 D + 1。根节点的深度为 0）。</p>
+<p>如果节点只有一个子节点，那么保证该子节点为左子节点。</p>
+<p>给出遍历输出 S，还原树并返回其根节点 root。</p>
+<h4 id="用例-1"><a href="#用例-1" class="headerlink" title="用例"></a>用例</h4><p>输入：”1-2–3–4-5–6–7”<br>输出：[1,2,5,3,4,6,7]</p>
+<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>利用栈进行遍历构造，读取字符串中‘-’的个数代表当前要构造的结点的深度是多少，当当前结点的深度大于上一次结点的深度，<br>连接到上一个结点的左节点，否则，弹出最后一个结点直到它的深度小于要构造的结点的深度，然后把新构造的结点连接到其右结点上。<br>并以此进行遍历。</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> val;</span><br><span class="line">    TreeNode left;</span><br><span class="line">    TreeNode right;</span><br><span class="line"></span><br><span class="line">    TreeNode(<span class="keyword">int</span> x) &#123;</span><br><span class="line">        val = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">recoverFromPreorder</span><span class="params">(String S)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = S.length();</span><br><span class="line">        <span class="keyword">int</span> idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (idx &lt; length) &#123;</span><br><span class="line">            <span class="keyword">if</span> (S.charAt(idx) == <span class="string">'-'</span>) <span class="keyword">break</span>;</span><br><span class="line">            tmp = <span class="number">10</span> * tmp + S.charAt(idx++) - <span class="string">'0'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ArrayDeque&lt;TreeNode&gt; stack = <span class="keyword">new</span> ArrayDeque&lt;&gt;();</span><br><span class="line">        stack.addLast(<span class="keyword">new</span> TreeNode(tmp));</span><br><span class="line">        <span class="keyword">int</span> level = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (idx &lt; length) &#123;</span><br><span class="line">            <span class="keyword">int</span> currentLevel = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (S.charAt(idx) == <span class="string">'-'</span>) &#123;<span class="comment">//这个地方不可以用S.charAt(idx++)，因为这里直接++会导致不等于的时候也++</span></span><br><span class="line">                currentLevel++;</span><br><span class="line">                idx++;</span><br><span class="line">            &#125;</span><br><span class="line">            tmp = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (idx&lt;length &amp;&amp; Character.isDigit(S.charAt(idx))) &#123;</span><br><span class="line">                tmp = <span class="number">10</span> * tmp  + S.charAt(idx++) - <span class="string">'0'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            TreeNode node = <span class="keyword">new</span> TreeNode(tmp);</span><br><span class="line">            <span class="keyword">if</span> (currentLevel &gt; level) &#123;</span><br><span class="line">                stack.getLast().left = node;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">while</span> (currentLevel &lt;= level) &#123;</span><br><span class="line">                    stack.pollLast();</span><br><span class="line">                    level--;</span><br><span class="line">                &#125;</span><br><span class="line">                stack.getLast().right = node;</span><br><span class="line">            &#125;</span><br><span class="line">            stack.addLast(node);</span><br><span class="line">            level++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> stack.peekFirst();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="题目125-验证回文串"><a href="#题目125-验证回文串" class="headerlink" title="题目125.验证回文串"></a>题目<a href="https://leetcode-cn.com/problems/valid-palindrome/" target="_blank" rel="noopener">125.验证回文串</a></h3><p>给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。</p>
+<p>说明：本题中，我们将空字符串定义为有效的回文串。</p>
+<h4 id="用例-2"><a href="#用例-2" class="headerlink" title="用例"></a>用例</h4><p>输入: “A man, a plan, a canal: Panama”<br>输出: true</p>
+<p>输入: “race a car”<br>输出: false</p>
+<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><p>利用双指针进行遍历，只要遍历的过程中左右结点不同就返回false</p>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>, right = s.length() - <span class="number">1</span>;</span><br><span class="line">        s = s.toLowerCase();</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right &amp;&amp; !Character.isLetterOrDigit(s.charAt(left))) &#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span> (left &lt; right &amp;&amp; !Character.isLetterOrDigit(s.charAt(right))) &#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(left++) != s.charAt(right--)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
 <!-- 《添加版权声明 -->
@@ -250,7 +256,29 @@
 
 <!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      ketsudou
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-06-17
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-06-19
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="http://huangketsudou.github.io/2020/06/17/leetcode-day23/" title="leetcode-day23" target="_blank">leetcode-day23</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="http://huangketsudou.github.io/2020/06/17/leetcode-day23/" title="leetcode-day23" target="_blank">http://huangketsudou.github.io/2020/06/17/leetcode-day23/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处
+  </div>
 
 <!-- 添加版权声明》 -->
 
@@ -288,11 +316,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日语</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -304,11 +336,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/日语//" class="article-tag-list-link color3">日语</a>
+        			<a href="/categories/程序人生//" class="article-tag-list-link color5">程序人生</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/日语/日记//" class="article-tag-list-link color3">日记</a>
+        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -363,7 +395,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://huangketsudou.github.io/2020/05/08/2019/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://huangketsudou.github.io/2020/06/17/leetcode-day23/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -377,18 +409,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/08/202003/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          2020年3月日记整理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/08/20200507/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">2018年日記整理</div>
+    <a href="/2020/06/16/leetcode-day22/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-day22</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -415,7 +438,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#2019年1月1日"><span class="toc-number">1.</span> <span class="toc-text">2019年1月1日</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019年1月24日"><span class="toc-number">2.</span> <span class="toc-text">2019年1月24日</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019年1月31日"><span class="toc-number">3.</span> <span class="toc-text">2019年1月31日</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2019年2月4日"><span class="toc-number">4.</span> <span class="toc-text">2019年2月4日</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目1014-最佳观光组合"><span class="toc-number">1.</span> <span class="toc-text">题目1014.最佳观光组合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例"><span class="toc-number">1.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路"><span class="toc-number">1.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码"><span class="toc-number">1.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目1028-从先序遍历还原二叉树"><span class="toc-number">2.</span> <span class="toc-text">题目1028.从先序遍历还原二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-1"><span class="toc-number">2.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-1"><span class="toc-number">2.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-1"><span class="toc-number">2.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目125-验证回文串"><span class="toc-number">3.</span> <span class="toc-text">题目125.验证回文串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-2"><span class="toc-number">3.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-2"><span class="toc-number">3.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-2"><span class="toc-number">3.3.</span> <span class="toc-text">代码</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -425,6 +448,44 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:rgb(255, 255, 255)}
+        @media screen and (max-width:400px){.comments{margin:auto;padding:10px;background:rgb(214, 252, 203)}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "zgSxSngR7rnn3iUI0bxxRTM1-gzGzoHsz",
+        app_key: "7Cqjugfx7RNRhHavSlizCirS",
+        placeholder: "ヾﾉ≧∀≦)o欢迎评论!",
+        avatar:"retro",
+    });
+</script>
+
+    </section>
+  
+
+  
+
+  
 
 
           </div>
