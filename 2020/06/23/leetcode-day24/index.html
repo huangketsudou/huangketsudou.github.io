@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://huangketsudou.github.io">
-  <title>Tag: linux | Ketsudou の blog</title>
+  <title>leetcode-day24 | Ketsudou の blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ketsudou の blog">
-<meta property="og:url" content="http://huangketsudou.github.io/tags/linux/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-day24">
+<meta property="og:url" content="http://huangketsudou.github.io/2020/06/23/leetcode-day24/index.html">
 <meta property="og:site_name" content="Ketsudou の blog">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://api.mtyqx.cn/api/random.php?143">
+<meta property="article:published_time" content="2020-06-23T15:55:12.000Z">
+<meta property="article:modified_time" content="2020-06-23T16:39:22.539Z">
 <meta property="article:author" content="ketsudou">
-<meta property="article:tag" content="ketsudou">
 <meta property="article:tag" content="leetcode">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="后端学习">
-<meta property="article:tag" content="计算机，自学编程">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://api.mtyqx.cn/api/random.php?143">
   
     <link rel="alternative" href="/atom.xml" title="Ketsudou の blog" type="application/atom+xml">
   
@@ -170,52 +172,170 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-leetcode-day24" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/08/mysql1/" class="archive-article-date">
-  	<time datetime="2020-05-08T14:25:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/08/mysql1/">数据库入门学习</a>
+    <h1 class="article-title" itemprop="name">
+      leetcode-day24
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        <a href="/2020/06/23/leetcode-day24/" class="archive-article-date">
+  	<time datetime="2020-06-23T15:55:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-23</time>
+</a>
+        <!-- 需要添加的位置 -->
           
+          <span class="archive-article-date">
+              阅读量 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">891字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">4分</span>
+      </span>
+    </span>
+</div>
+
+          
+        <!-- 添加完成 -->
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://api.mtyqx.cn/api/random.php?143" alt="图片"></p>
+<a id="more"></a>
+
+
+<h3 id="题目67-二进制求和"><a href="#题目67-二进制求和" class="headerlink" title="题目67.二进制求和"></a>题目<a href="https://leetcode-cn.com/problems/add-binary/" target="_blank" rel="noopener">67.二进制求和</a></h3><p>给你两个二进制字符串，返回它们的和（用二进制表示）。</p>
+<p>输入为 非空 字符串且只包含数字 1 和 0。</p>
+<h4 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h4><p>输入: a = “11”, b = “1”<br>输出: “100”</p>
+<p>输入: a = “1010”, b = “1011”<br>输出: “10101”</p>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><ol>
+<li>模拟法：模拟二进制加法的过程</li>
+<li>解析字符串</li>
+</ol>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> length = Math.max(a.length(), b.length());</span><br><span class="line">        StringBuilder answer = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            carry += i &gt;= a.length() ? <span class="number">0</span> : a.charAt(a.length() - <span class="number">1</span> - i) - <span class="string">'0'</span>;</span><br><span class="line">            carry += i &gt;= b.length() ? <span class="number">0</span> : b.charAt(b.length() - <span class="number">1</span> - i) - <span class="string">'0'</span>;</span><br><span class="line">            answer.append(carry % <span class="number">2</span>);</span><br><span class="line">            carry /= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (carry==<span class="number">1</span>)&#123;</span><br><span class="line">            answer.append(carry);</span><br><span class="line">        &#125;</span><br><span class="line">        answer.reverse();</span><br><span class="line">        <span class="keyword">return</span> answer.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">addBinary</span><span class="params">(String a, String b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Integer.toBinaryString(</span><br><span class="line">                Integer.parseInt(a, <span class="number">2</span>) + Integer.parseInt(b, <span class="number">2</span>)</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目面试题-16-18-模式匹配"><a href="#题目面试题-16-18-模式匹配" class="headerlink" title="题目面试题 16.18. 模式匹配"></a>题目<a href="https://leetcode-cn.com/problems/pattern-matching-lcci/" target="_blank" rel="noopener">面试题 16.18. 模式匹配</a></h3><p>你有两个字符串，即pattern和value。 pattern字符串由字母”a”和”b”组成，用于描述字符串中的模式。例如，字符串”catcatgocatgo”匹配模式”aabab”（其中”cat”是”a”，”go”是”b”），该字符串也匹配像”a”、”ab”和”b”这样的模式。但需注意”a”和”b”不能同时表示相同的字符串。编写一个方法判断value字符串是否匹配pattern字符串。</p>
+<h4 id="用例-1"><a href="#用例-1" class="headerlink" title="用例"></a>用例</h4><p>输入： pattern = “abba”, value = “dogcatcatdog”<br>输出： true</p>
+<p>输入： pattern = “abba”, value = “dogcatcatfish”<br>输出： false</p>
+<h4 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h4><p>基本是暴力匹配，但是可以通过很多条件进行剪枝</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">patternMatching</span><span class="params">(String pattern, String value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count_a = <span class="number">0</span>, count_b = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> ch: pattern.toCharArray()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (ch == <span class="string">'a'</span>) &#123;</span><br><span class="line">                ++count_a;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ++count_b;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (count_a &lt; count_b) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = count_a;</span><br><span class="line">            count_a = count_b;</span><br><span class="line">            count_b = temp;</span><br><span class="line">            <span class="keyword">char</span>[] array = pattern.toCharArray();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">                array[i] = array[i] == <span class="string">'a'</span> ? <span class="string">'b'</span> : <span class="string">'a'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            pattern = <span class="keyword">new</span> String(array);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (value.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> count_b == <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (pattern.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> len_a = <span class="number">0</span>; count_a * len_a &lt;= value.length(); ++len_a) &#123;</span><br><span class="line">            <span class="keyword">int</span> rest = value.length() - count_a * len_a;</span><br><span class="line">            <span class="keyword">if</span> ((count_b == <span class="number">0</span> &amp;&amp; rest == <span class="number">0</span>) || (count_b != <span class="number">0</span> &amp;&amp; rest % count_b == <span class="number">0</span>)) &#123;</span><br><span class="line">                <span class="keyword">int</span> len_b = (count_b == <span class="number">0</span> ? <span class="number">0</span> : rest / count_b);</span><br><span class="line">                <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">boolean</span> correct = <span class="keyword">true</span>;</span><br><span class="line">                String value_a = <span class="string">""</span>, value_b = <span class="string">""</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">char</span> ch: pattern.toCharArray()) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (ch == <span class="string">'a'</span>) &#123;</span><br><span class="line">                        String sub = value.substring(pos, pos + len_a);</span><br><span class="line">                        <span class="keyword">if</span> (value_a.length() == <span class="number">0</span>) &#123;</span><br><span class="line">                            value_a = sub;</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!value_a.equals(sub)) &#123;</span><br><span class="line">                            correct = <span class="keyword">false</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        pos += len_a;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        String sub = value.substring(pos, pos + len_b);</span><br><span class="line">                        <span class="keyword">if</span> (value_b.length() == <span class="number">0</span>) &#123;</span><br><span class="line">                            value_b = sub;</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!value_b.equals(sub)) &#123;</span><br><span class="line">                            correct = <span class="keyword">false</span>;</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        pos += len_b;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (correct &amp;&amp; !value_a.equals(value_b)) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目124-二叉树中的最大路径和"><a href="#题目124-二叉树中的最大路径和" class="headerlink" title="题目124.二叉树中的最大路径和"></a>题目<a href="https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/" target="_blank" rel="noopener">124.二叉树中的最大路径和</a></h3><p>给定一个非空二叉树，返回其最大路径和。</p>
+<p>本题中，路径被定义为一条从树中任意节点出发，达到任意节点的序列。该路径至少包含一个节点，且不一定经过根节点。</p>
+<h4 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h4><p>递归——递归思路如下：</p>
+<ol>
+<li>以一个结点作为根节点，与其左右结点的最大贡献值之和求和</li>
+<li>返回根节点与左右节点以及0的最大值的求和作为向上的贡献。</li>
+</ol>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxSum = Integer.MIN_VALUE;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxPathSum</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        maxGain(root);</span><br><span class="line">        <span class="keyword">return</span> maxSum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxGain</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 递归计算左右子节点的最大贡献值</span></span><br><span class="line">        <span class="comment">// 只有在最大贡献值大于 0 时，才会选取对应子节点</span></span><br><span class="line">        <span class="keyword">int</span> leftGain = Math.max(maxGain(node.left), <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> rightGain = Math.max(maxGain(node.right), <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值</span></span><br><span class="line">        <span class="keyword">int</span> priceNewpath = node.val + leftGain + rightGain;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 更新答案</span></span><br><span class="line">        maxSum = Math.max(maxSum, priceNewpath);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 返回节点的最大贡献值</span></span><br><span class="line">        <span class="keyword">return</span> node.val + Math.max(leftGain, rightGain);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目<a href=""></a></h3><h4 id="用例-2"><a href="#用例-2" class="headerlink" title="用例"></a>用例</h4><h4 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h4><h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4>
+      
+
+<!-- 《添加版权声明 -->
+      
+          <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      ketsudou
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-06-23
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-06-24
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="http://huangketsudou.github.io/2020/06/23/leetcode-day24/" title="leetcode-day24" target="_blank">leetcode-day24</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="http://huangketsudou.github.io/2020/06/23/leetcode-day24/" title="leetcode-day24" target="_blank">http://huangketsudou.github.io/2020/06/23/leetcode-day24/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处
+  </div>
+
+<!-- 添加版权声明》 -->
+
+      
+<!-- 添加版权声明》 -->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -225,24 +345,152 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/程序人生/mysql//" class="article-tag-list-link color1">mysql</a>
+        			<a href="/categories/程序人生/算法//" class="article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://huangketsudou.github.io/2020/06/23/leetcode-day24/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/06/17/leetcode-day23/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-day23</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目67-二进制求和"><span class="toc-number">1.</span> <span class="toc-text">题目67.二进制求和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例"><span class="toc-number">1.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路"><span class="toc-number">1.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码"><span class="toc-number">1.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目面试题-16-18-模式匹配"><span class="toc-number">2.</span> <span class="toc-text">题目面试题 16.18. 模式匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-1"><span class="toc-number">2.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-1"><span class="toc-number">2.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-1"><span class="toc-number">2.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目124-二叉树中的最大路径和"><span class="toc-number">3.</span> <span class="toc-text">题目124.二叉树中的最大路径和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-2"><span class="toc-number">3.1.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-2"><span class="toc-number">3.2.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-number">4.</span> <span class="toc-text">题目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用例-2"><span class="toc-number">4.1.</span> <span class="toc-text">用例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解题思路-3"><span class="toc-number">4.2.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码-3"><span class="toc-number">4.3.</span> <span class="toc-text">代码</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments{margin:30px;padding:10px;background:rgb(255, 255, 255)}
+        @media screen and (max-width:400px){.comments{margin:auto;padding:10px;background:rgb(214, 252, 203)}}
+      </style>
+      <div id="vcomment" class="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    new Valine({
+        av: AV,
+        el: '#vcomment',
+        notify: notify,
+        app_id: "zgSxSngR7rnn3iUI0bxxRTM1-gzGzoHsz",
+        app_key: "7Cqjugfx7RNRhHavSlizCirS",
+        placeholder: "ヾﾉ≧∀≦)o欢迎评论!",
+        avatar:"retro",
+    });
+</script>
+
+    </section>
+  
+
+  
+
+  
 
 
           </div>
@@ -308,9 +556,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
