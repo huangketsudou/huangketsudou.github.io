@@ -82,7 +82,7 @@ SELECT prod_name,prod_price FROM products WHERE prod_price BETWEEN 2.5 AND 10;
 SELECT cust_id FROM customers WHERE cust_email is NULL;
 ```
 1. 找到两列，并返回prod_price=2.5的列
-2.  =等于 <> 不等于 != 不等于 <小于 <=小于等于 >大于 >=大于等于 BETWEEN在指定的两个值之间
+2.  =等于 <> 不等于 != 不等于 <小于 <=小于等于 >大于 >=大于等于  <=> 安全等于 可以用来判断等于null BETWEEN在指定的两个值之间,大于等于左边，小于等于右边
 3. 字符串要用‘’括起来
 4. 检查空值
 
@@ -98,8 +98,9 @@ SELECT id,price FROM products WHERE id NOT IN (1002,1003) ORDER BY price;
 
 AND操作符返回符合多个条件的行，每多一个条件就需要增加一个AND，OR返回满足一个条件的行
 AND和OR在数据库中，AND的操作优先级高，即```id=1000 OR id=1003 AND price>=10```
-会理解为id=1000或者id=1003且价格小于10的,IN用来指定多个允许匹配的条件，NOT用于否定
+会理解为id=1000或者id=1003且价格小于10的,IN用来指定多个允许匹配的条件，NOT用于否定,IN的内部不支持表达式匹配
 之后所有的条件
+order by可以给出多个条件，会按照顺序进行排序，放在查询语句最后（除了limit之外）
 ### 通配符过滤
 
 ```mysql
@@ -107,11 +108,13 @@ SELECT id ,price FROM products WHERE id LIKE 'jet%';
 SELECT id,price FROM products WHERE id LIKE '%avail%';
 SELECT id,price FROM products WHERE id LIKE 's%e';
 SELECT id,price FROM products WHERE id LIKE '_ ton';
+SELECT id FROM products WHERE id LIKE '_$%' ESCAPE '$';s
 ```
 1. %通配符表示任意字符出现任意次数，命令表示以jet开头的所有词和模式中含有avail的
 模式,以及以s,e开头的词，但%不会匹配NULL
 2. _ 匹配单个任意字符，
 3. LIKE匹配模式要求整个字符串完全匹配，即LIKE '1000'不会匹配到'jet 1000'
+4. ESCAPE 可以用于转义
 
 ### 正则表达时搜索
 
@@ -148,7 +151,7 @@ SELECT id,quantity,itemprice,quantity*itemprice AS expandedprice FROM orderitems
 
 1. CONCAT连接字段并构成新的值返回，
 2. RTRIM去掉字符右边空格，LTRIM去掉左边空格，TRIM去掉两边空格
-3. AS 创建别名
+3. AS 创建别名,起了别名之后查询的字段就不能用原来的表名去限定了
 4. 执行算术计算，并给与别名，算数队列可执行+-*/以及括号运算
 
 
@@ -162,6 +165,34 @@ SELECT id,n FROM orders WHERE DATE(order_Date)='2005-08-01';
 1. 将id转换为大写，
 2. 常用函数以及相应的功能可以参考这篇博文[MySql常用函数大全讲解](https://blog.csdn.net/Evankaka/article/details/47911749)
 3. 日期以及事件处理函数，DATE()只返回日期中的日期，TIME只返回其中的时间
+4. substr函数，注意字符串中的索引从1开始，substr(str,1,3),从索引1处截取3长度的子串
+5. trim('a','aaaabaaaa')去掉前后的a，默认去掉空格
+
+### 控制流函数
+
+```mysql
+SELECT salary,departmentid,
+CASE departmentid
+WHEN 30 THEN salary*1.1
+WHEN 40 THEN salary*1.2
+ELSE salary
+END AS newsalary
+FROM employee;
+```
+
+```mysql
+SELECT salary,
+CASE 
+WHEN salary>2000 THEN `A`
+WHEN salary>33000 THEN `B`
+ELSE `C`
+END AS `rank`;
+```
+
+
+```mysql
+SELECT salary,IF(bonus is NULL,1,2) FROM employee;
+```
 
 ### 汇总数据
 对数据进行分析获得数据的汇总，对数据进行分析和报表生成，注意SQL的函数是对列进行的处理
@@ -178,9 +209,11 @@ SELECT SUM(price) AS item_sum FROM orderitems WHERE order_num=20005;
 SELECT SUM(itemprice*quantity) AS total_price FROM orderitems WHERE order_num=20005;
 ```
 1. AVG函数返回指定列的均值，第二个命令返回指定id=1003的pro_price列的均值，忽略NULL
-2. COUNT(*)对表中的所有列进行计数，不论其中的值是否为NULL，COUNT(column)返回某一列的行数，忽略NULL值
+2. COUNT(*)对表中的所有列进行计数，不论其中的值是否为NULL，实际上*可以随意换位任意常量值，结果都一样，如1，2，‘aa’这样，COUNT(column)返回某一列的行数，忽略NULL值
+，在myisam下，count(*)效率高，而innodb中COUNT(1)与COUNT(*)效率差不多，但比COUNT(字段高)
 3. MAX返回列中的最大值，忽视列中为NULL的行，如果用于文本表示，MIN则相应返回最小值
-4. SUM计算列的总数，也可以用于数值计算，忽略NULL
+4. SUM计算列的总数，也可以用于数值计算，忽略NULL,NULL+任何值都为0
+5. 这些函数可以和DINSTINCT一起使用，例如SUM(DISTINCT salary)
 
 #### 聚集不同的值
 ```mysql
@@ -232,6 +265,7 @@ order by：排序产生输出，对任意列可以使用，甚至非选择的列
 group by：分组行，输出不一定是分组顺序，只可能选择列或者表达式列，且必须使用每个列表达式
 如果与聚集函数一起使用列，那么必须使用
 
+where 数据源中有，having分组后查找，数据源中没有
 ### 使用子查询
 #### 使用子查询进行过滤
 可以将某一查询的返回结果给另一查询作为where子句,注意子查询总是从内向外执行
@@ -336,6 +370,7 @@ ORDER BY vend_id,prod_id;
 3. 列数据类型必须兼容，但不必完全相同
 4. UNION会在查询结果中自动忽略重复的行，使用UNION ALL可以返回所有的行，包括重复行
 5. 利用order by可对组合查询结果进行排序
+6. 使用于没有连接关系的表
 
 ### 全文搜索
 不是所有的数据库都支持全文搜索的，两个最常用的是MYISAM和InnoDB
@@ -353,6 +388,8 @@ SELECT note_text FROM productnotes WHERE Match(note_text) Against('rabbit');
 
 1. 创建全文本搜索，利用fulltext指定
 2. match()指定要搜索的列，against()指定要使用的搜索表达式,返回的结果以在文本中找到的位置进行排序
+3. 可以创建联合主键，但是不推荐，知道就好
+4. 对于外键，要求必须是主键或者唯一键
 
 #### 查询扩展
 ```mysql
@@ -399,12 +436,13 @@ INSERT用来插入或者添加行到数据库表中
 
 注:insert语句一般没有输出
 ```mysql
-INSERT INTO Customers VALUES(NULL,'pep','100 mian street','los angles','CA','90046','USA',NULL,NUll);
+INSERT INTO Customers VALUES(NULL,'pep','100 mian street','los angles','CA','90046','USA',NULL,NUll);#可以插入多行
 INSERT INTO Customers(cust_name,cust_address,cust_city,cust_state,cust_zip,cust_country,cust_contact,cust_email) VALUES(NULL,'pep','100 mian street','los angles','CA','90046','USA',NULL,NUll);
 INSERT INTO Customers(cust_name,cust_address,cust_city,cust_state,cust_zip,cust_country,cust_contact,cust_email) VALUES(NULL,'pep','100 mian street','los angles','CA','90046','USA',NULL,NUll),
 ('M','42 Galaxy','NEW York','NY','11213','USA');
 INSERT INTO customers(cust_id,cust_cotact,cust_enail,cust_name,cust_address,cust_city,cust_state,cust_zip,cust_country)
 SELECT cust_id,cust_cotact,cust_enail,cust_name,cust_address,cust_city,cust_state,cust_zip,cust_country FROM custnew;
+INSERT INTO customers SET cust_id = 1;
 ```
 1. 插入完整的一行，第二种写法更好
 2. 对于insert操作中的省略要求该列定义允许NULL值或者在表定义中给出默认值
@@ -425,6 +463,9 @@ DELETE from customers where cust_id=10006;
 3. 注意命令中必须带上where，除非确实要删除全部的行
 4. 保证每个表都有一个主键
 5. mysql没有undo按钮
+6. 可以与JOIN一起用
+7. 与delete相似的有truncate，两者的不同在插入数据上有区别，对于delete，如果有自增长列，删除后再插入，会从端点开始增长，而truncate会从1开始
+8. delete有返回值，能回滚，truncate没有，且不能回滚
 
 ### 创建表
 ```mysql
@@ -458,14 +499,31 @@ PRIMARY KEY (cust_id)
 ```mysql
 ALTER TABLE vendors ADD vend_phone CHAR(20);
 ALTER TABLE vendors DROP COLUMN vend_phone;
+ALTER TABLE vendors CHANGE COLUMN vend_phone phone varchar(11);
 ```
-
+alter有很多其他功能，需要的时候查，包括修改约束等
 #### 删除或者重命名表
 ```mysql
 DROP TABLE customers2;
 RENAME TABLE back_customers TO customers,back_vendors TO cendors;
 ```
+#### 复制表
+```mysql
+CREATE TABLE copy LIKE author
+```
+copy是新的表名，但只能复制表的结构
+```mysql
+CREATE TABLE copy 
+SELECT * FROM author;
+```
+复制表结构以及数据，*表示全部数据，可以换为具体的要复制的列
 
+```mysql
+CREATE TABLE copy 
+SELECT id,au_name
+WHERE 1=2;
+```
+只复制部分结构，不复制数据
 ### 视图
 视图不包含表中有的任何列或数据，它包含一个SQL查询
 + 视图的应用
@@ -474,15 +532,19 @@ RENAME TABLE back_customers TO customers,back_vendors TO cendors;
     - 使用表的组成部分而不是整个表
     - 保护数据，只给用户部分的访问权限
     - 更改数据格式
+    - 视图不占用实际物理空间
+    
 + 视图规则
     - 视图唯一命名
     - 对于视图的创建没有数量限制
     - 创建视图，必须具有足够厚的访问权限
     - 视图可以进行嵌套，可以进行排序，视图禁止索引也禁止关联的触发器
+    - 视图中存在group by ，having，DISTINCT时，视图，包含子查询时无法更新
+    
     
 #### 使用视图
 `CREATE VIEW`创建视图，`SHOW CREATE VIEW viewname`查看视图，`DROP VIEW viewname;`删除视图,
-更新视图时先`DROP`后`CREATE`或者`CREATE OR REPLACE VIEW`
+更新视图时先`DROP`后`CREATE`或者`CREATE OR REPLACE VIEW`，用的时候，单一个表就可以
 
 ```mysql
 CREATE VIEW productcustomers AS SELECT cust_name,cust_contact,prod_id
@@ -556,7 +618,7 @@ end;
 3. 删除存储过程，注意命令之后不需要用到().
 4. 变量variable是内存中一个特殊的位置,用来存放临时数据,OUT指出相应的参数用来从存储过程
 传出一个值，变量需要明确类型，INTO再过程体中表示select语句检索出的结果保存到相应的变量，
-IN指示将变量传递给存储过程
+IN指示将变量传递给存储过程，传递的是变量
 5. 在执行了CALL执行存储过程之后，通过`SELECT @变量`获得结果
 6. 该命令中使用IN 指示需要传递给存储过程的参数，执行这个命令使用命令`CALL ordertotal(20005,@total);`,其中传递出的参数也必须使用两个，
 显示合计结果可以使用`SELECT @total;`
@@ -747,6 +809,7 @@ ROLLBACK ;
 使用commit语句进行明确的提交
 
 ```mysql
+set autocommit=0;
 START TRANSACTION ;
 DELETE FROM orderitems WHERE order_num =20010;
 DELETE FROM orders WHERE order_num=20010;
@@ -857,3 +920,124 @@ CHECK TABLE orders,orderitems;
 - 查询日志：记录所有的mysql活动，，日志名为：hostname.log
 - 二进制日志：记录更新过数据的所有语句，日志名为：hostname-bin
 - 缓慢查询日志：记录执行缓慢的任何查询，对于数据库的优化很有用，日志名为：hostname-slow.log
+
+
+### 连接
+功能划分：
+    - 内连接：
+        - 等值连接
+        - 非等值连接
+        - 自连接
+    - 外连接：
+        - 左外连接
+        - 右外连接
+        - 全外连接
+    - 交叉连接
+    
+##### 等值连接
+```mysql
+SELECT name,boyname from girls,boys
+WHERE boys.id = girls.id;
+```
+多表的交际部分，n个表的连接需要n-1个条件，要起别名
+
+##### 非等值连接
+```mysql
+SELECT salary,grade_level FROM employees e,job_grades g
+WHERE salary BETWEEN g.lowest AND g.highest;
+```
+上面的表示，工资大于小于别的表里的某个数值范围，显示等级
+
+##### 自连接
+就是等值连接，另外一个表是自己
+```mysql
+select work.ename “工人”,’ works for’,mgr.ename “老板”
+   from emp work, emp mgr
+   where work.mgr = mgr.empno
+   order by work.ename;
+```
+#### 连接
+select 列表
+from 表1 别名 
+连接类型 join 表2
+on 连接条件
+[可选的where，order，group by]
+内连接：inner
+外连接：左外 left（outer），right（outer），全外full（outer），交叉连接：cross
+，可以inner join多个表，inner是可以省略的
+
+外连接查询的结果为主表中所有记录，如果有记录，那么显示匹配的值，如果没有记录，就显示null，外连接==内连接+主表中有而从表中没有
+
+mysql不支持全外，全外相当于左外加右外b'b
+
+交叉连接返回笛卡尔积
+
+![aa](..\img\微信图片_20200707212924.png)
+
+![bb](..\img\微信截图_20200707212959.png)
+
+可以用一个左外连接和一个右外连接实现全连接
+### 子查询
+
+- 按位置：
+    - select后面：仅标量子查询
+    - from后：表子查询
+    - where或having后面：标量，列，行子查询
+    - exists：相关子查询
+- 结果集行列数不同
+    - 标量；仅一行一列
+    - 列子查询：一列多行
+    - 行子查询：一行多列
+    - 表子查询：多行多列
+    
+
+IN/NOT IN 等于列表中的一个值
+ANY/SOME 与子查询中的一个值比较，与>,>=等一起用
+ALL 与子查询所有的值比较，与>,>=等一起用
+
+from后的子查询：将子查询作为一张表
+```mysql
+SELECT ag_dep.*,g.grade_level FROM(
+    SELECT AVG(salary) ag,department_id
+    FROM employees
+    GROUP BY department_id
+)ag_dep
+INNER JOIN job_grades g
+ON ag_dep.ag BETWEEN lowest_sal AND highest_sal;
+```
+
+
+exists后面的子查询：
+```mysql
+SELECT EXISTS(SELECT employee_id FROM employees)
+```
+表示检查查询结果是否为空，1或0，实际作用就是IN,但是在使用时，与IN在子查询上有性能差异
+，IN先执行子查询，主查询从子查询中选择合适的数据，EXIST先执行主查询，再根据子查询来筛选
+
+
+#### 分页查询
+数据太多，显示不全，需要分页，就是limit offset,size，offset起始索引位置，从0开始，size条目个数，offset缺省表示从0开始
+
+#### 级联删除
+`ALTER TABLE stuinfo ADD CONSTRAINT fk FOREIGN KEY(majorid) REFERENCE major(id) ON DELETE CASCADE`
+当删除major中的某个id之后，也会把stuinfo中外键引向这个id的相关行一起删除
+
+#### 级联置空
+`ALTER TABLE stuinfo ADD CONSTRAINT fk FOREIGN KEY(majorid) REFERENCE major(id) ON DELETE SET FULL`
+当删除major中的某个id之后，也会把stuinfo中外键引向这个id的相关行一起的外键变为null
+
+
+#### 自定义用户变量
+声明变量：`SET @用户变量名=值;`或者`SET @用户名:=值`或者`SELECT @用户名:= 值`
+赋值变量：上面的两种几种也是赋值，另一种，SELECT INTO
+例子：`SET @name = 100;SELECT COUNT(*) INTO @name FROM employee;`
+使用：SELECT @name
+
+
+#### 局部变量
+
+DECLARE name type DEFAULT value;
+声明变量：`SET 变量名=值;`或者`SET 变量名:=值`或者`SELECT 变量名:= 值`
+赋值变量：上面的两种几种也是赋值，另一种，SELECT INTO
+例子：`SELECT COUNT(*) INTO name FROM employee;`
+使用：select name
