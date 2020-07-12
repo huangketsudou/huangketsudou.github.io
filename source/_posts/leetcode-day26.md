@@ -236,6 +236,7 @@ class Solution2 {
 思路一：归并排序，利用归并排序来求取数组的逆序对
 思路二：树状数组，可以参考该博客——[树状数组](https://blog.csdn.net/Yaokai_AssultMaster/article/details/79492190)
 
+树状数组适用于求解与前缀和相关的问题
 
 #### 代码
 
