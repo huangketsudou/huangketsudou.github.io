@@ -368,3 +368,108 @@ class Solution3 {
     }
 }
 ```
+
+### 题目[785.判断二分图](https://leetcode-cn.com/problems/is-graph-bipartite/)
+给定一个无向图graph，当这个图为二分图时返回true。
+
+如果我们能将一个图的节点集合分割成两个独立的子集A和B，并使图中的每一条边的两个节点一个来自A集合，一个来自B集合，我们就将这个图称为二分图。
+
+graph将会以邻接表方式给出，graph[i]表示图中与节点i相连的所有节点。每个节点都是一个在0到graph.length-1之间的整数。这图中没有自环和平行边： graph[i] 中不存在i，并且graph[i]中没有重复的值。
+
+#### 用例
+输入: [[1,3], [0,2], [1,3], [0,2]]
+输出: true
+
+输入: [[1,2,3], [0,2], [0,1,3], [0,2]]
+输出: false
+
+#### 解题思路
+对图中的节点进行分组，一条边上的两个点要被分到不同的组，利用bfs算法进行分析，选择当前点，观察其分组，
+如果还没有被分组，就分到组1，如果被分了组，就观察下个点，将该点的对面的点p2分到组2，并按照bfs算法分析
+p2的对立点，如果其对立已经被分组，而且与p2同组，就返回false
+
+代码中提供一个并查集的实现
+#### 代码
+
+```java
+class Solution {
+
+    private final int UNGROUPED = 0;
+    private final int G1 = 1;
+    private final int G2 = 2;
+
+    public boolean isBipartite(int[][] graph) {
+        int length = graph.length;
+        int[] group = new int[length];
+        for (int i = 0; i < length; i++) {
+            if (group[i] == UNGROUPED) {
+                Queue<Integer> queue = new LinkedList<>();
+                queue.offer(i);
+                group[i] = G1;
+                while (!queue.isEmpty()) {
+                    int node = queue.poll();
+                    int opGroup = group[node] == G1 ? G2 : G1;
+                    for (int j : graph[node]) {
+                        if (group[j]==UNGROUPED){
+                            group[j] = opGroup;
+                            queue.offer(j);
+                        }else if(group[j]!=opGroup){
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+}
+```
+
+```java
+class Solution {
+    public boolean isBipartite(int[][] graph) {
+        // 初始化并查集
+        UnionFind uf = new UnionFind(graph.length);
+        // 遍历每个顶点，将当前顶点的所有邻接点进行合并
+        for (int i = 0; i < graph.length; i++) {
+            int[] adjs = graph[i];
+            for (int w: adjs) {
+                // 若某个邻接点与当前顶点已经在一个集合中了，说明不是二分图，返回 false。
+                if (uf.isConnected(i, w)) {
+                    return false;
+                }
+                uf.union(adjs[0], w);
+            }
+        }
+        return true;
+    }
+}
+
+// 并查集
+class UnionFind {
+    int[] roots;
+    public UnionFind(int n) {
+        roots = new int[n]; 
+        for (int i = 0; i < n; i++) {
+            roots[i] = i;
+        }
+    }
+
+    public int find(int i) {
+        if (roots[i] == i) {
+            return i;
+        }
+        return roots[i] = find(roots[i]);
+    }
+
+    // 判断 p 和 q 是否在同一个集合中
+    public boolean isConnected(int p, int q) {
+        return find(q) == find(p);
+    }
+
+    // 合并 p 和 q 到一个集合中
+    public void union(int p, int q) {
+        roots[find(p)] = find(q);
+    }
+}
+```
