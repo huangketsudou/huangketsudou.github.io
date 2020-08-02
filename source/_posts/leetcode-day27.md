@@ -349,3 +349,257 @@ class FooBar4 {
     }
 }
 ```
+
+
+### 题目[1116. 打印零与奇偶数](https://leetcode-cn.com/problems/print-zero-even-odd/)
+假设有这么一个类：
+```java
+class ZeroEvenOdd {
+  public ZeroEvenOdd(int n) { ... }      // 构造函数
+  public void zero(printNumber) { ... }  // 仅打印出 0
+  public void even(printNumber) { ... }  // 仅打印出 偶数
+  public void odd(printNumber) { ... }   // 仅打印出 奇数
+}
+```
+相同的一个 ZeroEvenOdd 类实例将会传递给三个不同的线程：
+
+线程 A 将调用 zero()，它只输出 0 。
+线程 B 将调用 even()，它只输出偶数。
+线程 C 将调用 odd()，它只输出奇数。
+每个线程都有一个 printNumber 方法来输出一个整数。请修改给出的代码以输出整数序列 010203040506... ，其中序列的长度必须为 2n。
+
+
+#### 用例
+输入：n = 2
+输出："0102"
+
+输入：n = 5
+输出："0102030405"
+
+#### 解题思路
+1. ReentrantLock
+2. Semaphore
+
+
+#### 代码
+```java
+class ZeroEvenOdd2 {
+    private int n;
+    private volatile int who = 0;
+    private ReentrantLock lock = new ReentrantLock();
+    private Condition conditionZero = lock.newCondition();
+    private Condition conditionEven = lock.newCondition();
+    private Condition conditionOdd = lock.newCondition();
+
+
+    public ZeroEvenOdd2(int n) {
+        this.n = n;
+    }
+
+    public void zero(IntConsumer printNumber) throws InterruptedException {
+        lock.lock();
+        try {
+            for (int i = 1; i <= n; i++) {
+                while (who != 0) {
+                    conditionZero.await();
+                }
+                printNumber.accept(0);
+                if ((i & 1) == 0) {
+                    who = 2;
+                    conditionEven.signalAll();
+                } else {
+                    who = 1;
+                    conditionOdd.signalAll();
+                }
+            }
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void even(IntConsumer printNumber) throws InterruptedException {
+        lock.lock();
+        try {
+            for (int i = 2; i <= n; i = i + 2) {
+                while (who != 2) {
+                    conditionEven.await();
+                }
+                printNumber.accept(i);
+                who = 0;
+                conditionZero.signalAll();
+            }
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public void odd(IntConsumer printNumber) throws InterruptedException {
+        lock.lock();
+        try {
+            for (int i = 1; i <= n; i = i + 2) {
+                while (who != 1) {
+                    conditionOdd.await();
+                }
+                printNumber.accept(i);
+                who = 0;
+                conditionZero.signalAll();
+            }
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    public static void main(String[] args) {
+        ZeroEvenOdd2 o = new ZeroEvenOdd2(5);
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    o.zero(System.out::println);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    o.even(System.out::println);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        Thread t3 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    o.odd(System.out::println);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
+
+class ZeroEvenOdd3 {
+    private int n;
+    private Semaphore zero = new Semaphore(1);
+    private Semaphore odd = new Semaphore(0);
+    private Semaphore even = new Semaphore(0);
+
+    public ZeroEvenOdd3(int n) {
+        this.n = n;
+    }
+
+    // printNumber.accept(x) outputs "x", where x is an integer.
+    public void zero(IntConsumer printNumber) throws InterruptedException {
+        for (int i = 1; i <= n; i++) {
+            zero.acquire();
+            printNumber.accept(i);
+            if (i % 2 == 1) {
+                odd.release();
+            } else {
+                even.release();
+            }
+        }
+    }
+
+    public void even(IntConsumer printNumber) throws InterruptedException {
+        for (int i = 2; i <= n; i = i + 2) {
+            even.acquire();
+            printNumber.accept(i);
+            zero.release();
+        }
+    }
+
+    public void odd(IntConsumer printNumber) throws InterruptedException {
+        for (int i = 1; i <= n; i = i + 2) {
+            odd.acquire();
+            printNumber.accept(i);
+            zero.release();
+        }
+    }
+}
+```
+
+### 题目[1117. H2O 生成](https://leetcode-cn.com/problems/building-h2o/)
+现在有两种线程，氧 oxygen 和氢 hydrogen，你的目标是组织这两种线程来产生水分子。
+
+存在一个屏障（barrier）使得每个线程必须等候直到一个完整水分子能够被产生出来。
+
+氢和氧线程会被分别给予 releaseHydrogen 和 releaseOxygen 方法来允许它们突破屏障。
+
+这些线程应该三三成组突破屏障并能立即组合产生一个水分子。
+
+你必须保证产生一个水分子所需线程的结合必须发生在下一个水分子产生之前。
+
+换句话说:
+
+如果一个氧线程到达屏障时没有氢线程到达，它必须等候直到两个氢线程到达。
+如果一个氢线程到达屏障时没有其它线程到达，它必须等候直到一个氧线程和另一个氢线程到达。
+书写满足这些限制条件的氢、氧线程同步代码。
+
+
+#### 用例
+输入: "HOH"
+输出: "HHO"
+
+
+输入: "OOHHHH"
+输出: "HHOHHO"
+#### 解题思路
+利用Semaphore和CycleBarrier来实现控制，最开始想用CountdownLatch来实现，但是CountDownLatch是一个不可复用的类型
+
+#### 代码
+```java
+class H2O {
+    private Semaphore H = new Semaphore(2);
+    private Semaphore O = new Semaphore(1);
+    private CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
+    
+    
+    public H2O() {
+
+    }
+
+    public void hydrogen(Runnable releaseHydrogen) throws InterruptedException {
+        H.acquire();
+        try {
+            cyclicBarrier.await();
+        }catch (Exception e){
+        }
+        
+        // releaseHydrogen.run() outputs "H". Do not change or remove this line.
+        releaseHydrogen.run();
+        H.release();
+    }
+
+    public void oxygen(Runnable releaseOxygen) throws InterruptedException {
+        O.acquire();
+        try {
+            cyclicBarrier.await();
+        }catch (Exception e){
+        }
+        // releaseOxygen.run() outputs "O". Do not change or remove this line.
+        releaseOxygen.run();
+        O.release();
+    }
+}
+```
+
+### 题目[]()
+
+
+#### 用例
+
+
+#### 解题思路
+
+
+#### 代码
