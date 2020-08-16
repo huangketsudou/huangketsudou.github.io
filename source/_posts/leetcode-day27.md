@@ -593,6 +593,115 @@ class H2O {
 }
 ```
 
+### 题目[](哲学家用餐问题解决)
+
+#### 解题思路
+思路一：哲学家用餐的时候要么同时拿起两只叉子，要么都不要拿
+思路二：要求哲学家拿筷子的顺序要相同，先拿序号小的
+
+#### 代码
+
+```java
+public class Philosopher extends Thread {
+    private String name;
+    private Fork fork;
+
+    public Philosopher(String name, Fork fork) {
+        this.name = name;
+        this.fork = fork;
+    }
+
+    public void run() {
+        while (true) {
+            thinking();
+            fork.takefork();
+            eating();
+            fork.putfork();
+        }
+    }
+
+
+    public void thinking() {
+        System.out.println("thinking....");
+    }
+
+    public void eating() {
+        System.out.println("eating...");
+    }
+}
+
+class Fork {
+    private boolean[] used = {false, false, false, false, false};
+
+    public synchronized void takefork() {//在同一时刻只有一个人可以拿筷子，但是在哲学家思考，吃饭的时候其他人可以拿
+        String name = Thread.currentThread().getName();
+        int i = Integer.parseInt(name);
+        while (used[i] || used[(i + 1) % 5]) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+
+            }
+        }
+        used[i] = true;
+        used[(i + 1) % 5] = true;
+    }
+
+    public synchronized void putfork() {
+        String name = Thread.currentThread().getName();
+        int i = Integer.parseInt(name);
+        used[i] = false;
+        used[(i + 1) % 5] = false;
+        notifyAll();
+    }
+}
+```
+
+```java
+import java.util.concurrent.Semaphore;
+
+class DiningPhilosophers {
+
+    private Semaphore[] chopsticks = new Semaphore[5];
+
+    public DiningPhilosophers() {
+        for (int i = 0; i < 5; i++) {
+            chopsticks[i] = new Semaphore(1);
+        }
+
+    }
+
+    // call the run() method of any runnable to execute its code
+    public void wantsToEat(int philosopher,
+                           Runnable pickLeftFork,
+                           Runnable pickRightFork,
+                           Runnable eat,
+                           Runnable putLeftFork,
+                           Runnable putRightFork) throws InterruptedException {
+        int left = philosopher % 5;
+        int right = (philosopher + 1) % 5;
+        if (philosopher==4){
+            chopsticks[right].acquire();
+            chopsticks[left].acquire();
+        }else {
+            chopsticks[left].acquire();
+
+            chopsticks[right].acquire();
+
+        }
+        eat.run();
+        pickRightFork.run();
+        pickLeftFork.run();
+        putLeftFork.run();
+        putRightFork.run();
+        chopsticks[left].release();
+        chopsticks[right].release();
+    }
+
+}
+```
+
+
 ### 题目[]()
 
 
