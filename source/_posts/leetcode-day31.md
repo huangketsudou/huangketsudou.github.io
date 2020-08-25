@@ -149,13 +149,37 @@ class Solution66 {
 
 
 
-### 题目[]()
-
-
+### 题目[Ayoub and Lost Array](http://codeforces.com/problemset/problem/1105/C)
+给定一个区间[l,r],用这里面的数组组成一个长度为n的数列，要求该数列之和是能被３整除，输出有多少种方案满足上面的条件，答案要mod(1e9+7);
+输入为n，l，r
 #### 用例
-
+input:[2 1 3]
+output:3
 
 #### 解题思路
-
+dp动态规划，对可以构建二维dp数组，当数字为i，dp[i][j]表示对3的余数为j时的总数
 
 #### 代码
+```java
+class Solution {
+    public int count(int n, int l, int r) {
+        int[][] dp = new int[n][3];
+        int zero = 0, one = 0, two = 0;
+        int MOD = 1000000007;
+        for (int i = l; i <= r; i++) {
+            if (i % 3 == 0) zero++;
+            else if (i % 3 == 1) one++;
+            else two++;
+        }
+        dp[0][0] = zero;
+        dp[0][1] = one;
+        dp[0][2] = two;
+        for (int i = 1; i < n; i++) {
+            dp[i][0] = (zero * dp[i - 1][0] + one * dp[i - 1][2] + two * dp[i - 1][1]) % MOD;
+            dp[i][1] = (zero * dp[i - 1][1] + one * dp[i - 1][0] + two * dp[i - 1][2]) % MOD;
+            dp[i][2] = (zero * dp[i - 1][2] + one * dp[i - 1][1] + two * dp[i - 1][0]) % MOD;
+        }
+        return dp[n - 1][0];
+    }
+}
+```

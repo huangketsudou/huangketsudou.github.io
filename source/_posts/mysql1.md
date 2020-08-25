@@ -810,7 +810,7 @@ ROLLBACK ;
 
 ```mysql
 set autocommit=0;
-START TRANSACTION ;
+START TRANSACTION ;//可选
 DELETE FROM orderitems WHERE order_num =20010;
 DELETE FROM orders WHERE order_num=20010;
 COMMIT ;
